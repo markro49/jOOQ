@@ -108,6 +108,13 @@
                         <Xmaxerrs>10000</Xmaxerrs>
                         <Xmaxwarns>10000</Xmaxwarns>
                     </compilerArguments>
+                <annotationProcessorPaths>
+                  <path>
+                    <groupId>org.checkerframework</groupId>
+                    <artifactId>checker</artifactId>
+                    <version>3.35.0</version>
+                  </path>
+              </annotationProcessorPaths>
                     <showWarnings>true</showWarnings>
                     <!-- Default is verbose off, so you won't see stub parser warnings. -->
                     <verbose>${javac.verbose}</verbose>
