@@ -47,6 +47,9 @@ import org.jooq.Field;
 import org.jooq.SQLDialect;
 import org.jooq.tools.StringUtils;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.common.value.qual.PolyValue;
+
 /**
  * An implementation for the SQL standard <code>INTERVAL DAY TO SECOND</code>
  * data type.
@@ -459,22 +462,22 @@ public final class DayToSecond extends Number implements Interval, Comparable<Da
     // -------------------------------------------------------------------------
 
     @Override
-    public final int intValue() {
+    public final @PolyValue int intValue(@PolyValue DayToSecond this) {
         return (int) doubleValue();
     }
 
     @Override
-    public final long longValue() {
+    public final @PolyValue long longValue(@PolyValue DayToSecond this) {
         return (long) doubleValue();
     }
 
     @Override
-    public final float floatValue() {
+    public final @PolyValue float floatValue(@PolyValue DayToSecond this) {
         return (float) doubleValue();
     }
 
     @Override
-    public final double doubleValue() {
+    public final @PolyValue double doubleValue(@PolyValue DayToSecond this) {
         return getTotalMilli();
     }
 
@@ -657,7 +660,7 @@ public final class DayToSecond extends Number implements Interval, Comparable<Da
     }
 
     @Override
-    public final int hashCode() {
+    public final int hashCode(@UnknownSignedness DayToSecond this) {
         final int prime = 31;
         int result = 0;
         if (days != 0)

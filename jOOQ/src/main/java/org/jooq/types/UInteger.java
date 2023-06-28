@@ -18,6 +18,9 @@ package org.jooq.types;
 import java.io.ObjectStreamException;
 import java.math.BigInteger;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.common.value.qual.PolyValue;
+
 /**
  * The <code>unsigned int</code> type
  *
@@ -277,22 +280,22 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     }
 
     @Override
-    public int intValue() {
+    public @PolyValue int intValue(@PolyValue UInteger this) {
         return (int) value;
     }
 
     @Override
-    public long longValue() {
+    public @PolyValue long longValue(@PolyValue UInteger this) {
         return value;
     }
 
     @Override
-    public float floatValue() {
+    public @PolyValue float floatValue(@PolyValue UInteger this) {
         return value;
     }
 
     @Override
-    public double doubleValue() {
+    public @PolyValue double doubleValue(@PolyValue UInteger this) {
         return value;
     }
 
@@ -302,7 +305,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness UInteger this) {
         return Long.valueOf(value).hashCode();
     }
 

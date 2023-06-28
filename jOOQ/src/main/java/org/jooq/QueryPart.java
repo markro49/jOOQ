@@ -48,6 +48,8 @@ import org.jooq.conf.Settings;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.ApiStatus.Experimental;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * The common base type for all objects that can be used for query composition.
  *
@@ -106,7 +108,7 @@ public interface QueryPart extends Serializable {
      * @return The <code>QueryPart</code> hash code
      */
     @Override
-    int hashCode();
+    int hashCode(@UnknownSignedness QueryPart this);
 
 
 

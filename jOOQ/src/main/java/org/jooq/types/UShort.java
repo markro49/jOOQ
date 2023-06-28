@@ -17,6 +17,9 @@ package org.jooq.types;
 
 import java.math.BigInteger;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.common.value.qual.PolyValue;
+
 /**
  * The <code>unsigned short</code> type
  *
@@ -125,22 +128,22 @@ public final class UShort extends UNumber implements Comparable<UShort> {
     }
 
     @Override
-    public int intValue() {
+    public @PolyValue int intValue(@PolyValue UShort this) {
         return value;
     }
 
     @Override
-    public long longValue() {
+    public @PolyValue long longValue(@PolyValue UShort this) {
         return value;
     }
 
     @Override
-    public float floatValue() {
+    public @PolyValue float floatValue(@PolyValue UShort this) {
         return value;
     }
 
     @Override
-    public double doubleValue() {
+    public @PolyValue double doubleValue(@PolyValue UShort this) {
         return value;
     }
 
@@ -150,7 +153,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness UShort this) {
         return Integer.valueOf(value).hashCode();
     }
 

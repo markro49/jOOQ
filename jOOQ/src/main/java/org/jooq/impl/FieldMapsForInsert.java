@@ -100,6 +100,8 @@ import org.jooq.impl.AbstractStoreQuery.UnknownField;
 import org.jooq.impl.QOM.UNotYetImplemented;
 import org.jooq.impl.Tools.BooleanDataKey;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * @author Lukas Eder
  */
@@ -619,17 +621,17 @@ final class FieldMapsForInsert extends AbstractQueryPart implements UNotYetImple
             }
 
             @Override
-            public boolean containsKey(Object key) {
+            public boolean containsKey(@UnknownSignedness Object key) {
                 return values.containsKey(key);
             }
 
             @Override
-            public boolean containsValue(Object value) {
+            public boolean containsValue(@UnknownSignedness Object value) {
                 return anyMatch(values.values(), list -> list.get(index).equals(value));
             }
 
             @Override
-            public Field<?> get(Object key) {
+            public Field<?> get(@UnknownSignedness Object key) {
                 List<Field<?>> list = values.get(key);
                 return list == null ? null : list.get(index);
             }
@@ -641,7 +643,7 @@ final class FieldMapsForInsert extends AbstractQueryPart implements UNotYetImple
             }
 
             @Override
-            public Field<?> remove(Object key) {
+            public Field<?> remove(@UnknownSignedness Object key) {
                 List<Field<?>> list = values.get(key);
                 values.remove(key);
                 return list == null ? null : list.get(index);

@@ -50,6 +50,8 @@ import org.jooq.WindowDefinition;
 import org.jooq.WindowSpecification;
 import org.jooq.impl.QOM.UEmpty;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * The default implementation for a qualified SQL identifier.
  *
@@ -364,7 +366,7 @@ implements
 
     // [#13499] Enforce an optimised implementation
     @Override
-    public abstract int hashCode();
+    public abstract int hashCode(@UnknownSignedness AbstractName this);
 
     @Override
     public boolean equals(Object that) {

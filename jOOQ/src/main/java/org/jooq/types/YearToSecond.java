@@ -46,6 +46,9 @@ import java.util.regex.Pattern;
 import org.jooq.tools.Convert;
 import org.jooq.tools.StringUtils;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.common.value.qual.PolyValue;
+
 /**
  * A combined {@link YearToMonth} / {@link DayToSecond} interval.
  * <p>
@@ -283,22 +286,22 @@ public final class YearToSecond extends Number implements Interval, Comparable<Y
     // -------------------------------------------------------------------------
 
     @Override
-    public final int intValue() {
+    public final @PolyValue int intValue(@PolyValue YearToSecond this) {
         return (int) doubleValue();
     }
 
     @Override
-    public final long longValue() {
+    public final @PolyValue long longValue(@PolyValue YearToSecond this) {
         return (long) doubleValue();
     }
 
     @Override
-    public final float floatValue() {
+    public final @PolyValue float floatValue(@PolyValue YearToSecond this) {
         return (float) doubleValue();
     }
 
     @Override
-    public final double doubleValue() {
+    public final @PolyValue double doubleValue(@PolyValue YearToSecond this) {
         return (yearToMonth.getYears() * 365.25
               + yearToMonth.getMonths() * 30) * 86400000 * yearToMonth.getSign()
               + dayToSecond.doubleValue();
@@ -314,7 +317,7 @@ public final class YearToSecond extends Number implements Interval, Comparable<Y
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness YearToSecond this) {
         final int prime = 31;
         int result = 0;
         int h1 = dayToSecond.hashCode();

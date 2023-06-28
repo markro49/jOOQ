@@ -49,6 +49,8 @@ import org.jooq.Context;
 import org.jooq.QueryPart;
 import org.jooq.impl.QOM.UnmodifiableList;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A {@link List} view, delegating all calls to a wrapped list, but acting like
  * a {@link QueryPart}.
@@ -153,12 +155,12 @@ permits
     }
 
     @Override
-    public final int indexOf(Object o) {
+    public final int indexOf(@UnknownSignedness Object o) {
         return wrapped().indexOf(o);
     }
 
     @Override
-    public final int lastIndexOf(Object o) {
+    public final int lastIndexOf(@UnknownSignedness Object o) {
         return wrapped().lastIndexOf(o);
     }
 
@@ -182,7 +184,7 @@ permits
     // -------------------------------------------------------------------------
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(@UnknownSignedness Object that) {
         if (this == that)
             return true;
         else if (that instanceof List)

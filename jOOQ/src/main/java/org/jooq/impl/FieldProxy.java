@@ -47,6 +47,8 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.impl.QOM.UProxy;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A {@link Field} that acts as another field, allowing for the proxied field to
  * be replaced.
@@ -125,7 +127,7 @@ implements
     }
 
     @Override
-    public final int hashCode() {
+    public final int hashCode(@UnknownSignedness FieldProxy<T> this) {
         return delegate.hashCode();
     }
 

@@ -96,6 +96,11 @@ import org.jooq.UpdatableRecord;
 import org.jooq.exception.InvalidResultException;
 import org.jooq.tools.jdbc.MockResultSet;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.checker.nullness.qual.PolyNull;
+import org.checkerframework.checker.signedness.qual.PolySigned;
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * @author Lukas Eder
  * @author Ivan Dugic
@@ -1130,12 +1135,12 @@ final class ResultImpl<R extends Record> extends AbstractResult<R> implements Re
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness ResultImpl<R> this) {
         return records.hashCode();
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(@UnknownSignedness Object obj) {
         if (this == obj)
             return true;
 
@@ -1155,17 +1160,17 @@ final class ResultImpl<R extends Record> extends AbstractResult<R> implements Re
     }
 
     @Override
-    public final boolean contains(Object o) {
+    public final boolean contains(@UnknownSignedness Object o) {
         return records.contains(o);
     }
 
     @Override
-    public final Object[] toArray() {
+    public final @PolyNull Object[] toArray(ResultImpl<@PolyNull R> this) {
         return records.toArray();
     }
 
     @Override
-    public final <T> T[] toArray(T[] a) {
+    public final <T> @Nullable T[] toArray(@PolyNull T[] a) {
         return records.toArray(a);
     }
 
@@ -1175,7 +1180,7 @@ final class ResultImpl<R extends Record> extends AbstractResult<R> implements Re
     }
 
     @Override
-    public final boolean remove(Object o) {
+    public final boolean remove(@UnknownSignedness Object o) {
         return records.remove(o);
     }
 
@@ -1230,12 +1235,12 @@ final class ResultImpl<R extends Record> extends AbstractResult<R> implements Re
     }
 
     @Override
-    public final int indexOf(Object o) {
+    public final int indexOf(@UnknownSignedness Object o) {
         return records.indexOf(o);
     }
 
     @Override
-    public final int lastIndexOf(Object o) {
+    public final int lastIndexOf(@UnknownSignedness Object o) {
         return records.lastIndexOf(o);
     }
 

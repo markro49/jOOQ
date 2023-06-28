@@ -53,6 +53,8 @@ import org.jooq.Scope;
 import org.jooq.impl.Tools.BooleanDataKey;
 import org.jooq.impl.Tools.SimpleDataKey;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * The {@link Map} implementation for use with {@link Scope#data()}.
  *
@@ -82,14 +84,14 @@ final class DataMap extends AbstractMap<Object, Object> {
     }
 
     @Override
-    public final boolean containsKey(Object key) {
+    public final boolean containsKey(@UnknownSignedness Object key) {
         return key instanceof BooleanDataKey
              ? internalSet.contains(key)
              : delegate(key, false).containsKey(key);
     }
 
     @Override
-    public final boolean containsValue(Object value) {
+    public final boolean containsValue(@UnknownSignedness Object value) {
         if (value instanceof Boolean)
             if ((Boolean) value && internalSet.size() > 0)
                 return true;
@@ -100,7 +102,7 @@ final class DataMap extends AbstractMap<Object, Object> {
     }
 
     @Override
-    public final Object get(Object key) {
+    public final Object get(@UnknownSignedness Object key) {
         return key instanceof BooleanDataKey
              ? internalSet.contains(key)
                  ? (Boolean) true
@@ -122,7 +124,7 @@ final class DataMap extends AbstractMap<Object, Object> {
     }
 
     @Override
-    public final Object remove(Object key) {
+    public final Object remove(@UnknownSignedness Object key) {
         return key instanceof BooleanDataKey
              ? internalSet.remove(key)
                  ? TRUE

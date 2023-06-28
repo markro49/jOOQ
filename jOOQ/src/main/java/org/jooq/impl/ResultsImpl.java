@@ -48,6 +48,8 @@ import org.jooq.ResultOrRows;
 import org.jooq.Results;
 import org.jooq.exception.DataAccessException;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * @author Lukas Eder
  */
@@ -117,12 +119,12 @@ final class ResultsImpl extends AbstractList<Result<Record>> implements Results 
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness ResultsImpl this) {
         return resultsOrRows.hashCode();
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(@UnknownSignedness Object obj) {
         if (this == obj)
             return true;
 

@@ -44,6 +44,9 @@ import java.util.regex.Pattern;
 import org.jooq.Field;
 import org.jooq.SQLDialect;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.common.value.qual.PolyValue;
+
 /**
  * An implementation for the SQL standard <code>INTERVAL YEAR TO MONTH</code>
  * data type.
@@ -249,22 +252,22 @@ public final class YearToMonth extends Number implements Interval, Comparable<Ye
     // -------------------------------------------------------------------------
 
     @Override
-    public final int intValue() {
+    public final @PolyValue int intValue(@PolyValue YearToMonth this) {
         return (negative ? -1 : 1) * (12 * years + months);
     }
 
     @Override
-    public final long longValue() {
+    public final @PolyValue long longValue(@PolyValue YearToMonth this) {
         return intValue();
     }
 
     @Override
-    public final float floatValue() {
+    public final @PolyValue float floatValue(@PolyValue YearToMonth this) {
         return intValue();
     }
 
     @Override
-    public final double doubleValue() {
+    public final @PolyValue double doubleValue(@PolyValue YearToMonth this) {
         return intValue();
     }
 
@@ -292,7 +295,7 @@ public final class YearToMonth extends Number implements Interval, Comparable<Ye
     }
 
     @Override
-    public final int hashCode() {
+    public final int hashCode(@UnknownSignedness YearToMonth this) {
         final int prime = 31;
         int result = 0;
         if (months != 0)

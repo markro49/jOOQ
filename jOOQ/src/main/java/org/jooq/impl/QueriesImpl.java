@@ -65,6 +65,8 @@ import org.jooq.impl.DefaultParseContext.IgnoreQuery;
 import org.jooq.impl.QOM.UnmodifiableList;
 import org.jooq.impl.ResultsImpl.ResultOrRowsImpl;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * @author Lukas Eder
  */
@@ -208,7 +210,7 @@ final class QueriesImpl extends AbstractAttachableQueryPart implements Queries {
     // ------------------------------------------------------------------------
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness QueriesImpl this) {
         return queries.hashCode();
     }
 

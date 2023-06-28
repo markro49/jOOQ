@@ -17,6 +17,9 @@ package org.jooq.types;
 
 import java.math.BigInteger;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.common.value.qual.PolyValue;
+
 /**
  * The <code>unsigned long</code> type
  *
@@ -161,17 +164,17 @@ public final class ULong extends UNumber implements Comparable<ULong> {
     }
 
     @Override
-    public int intValue() {
+    public @PolyValue int intValue(@PolyValue ULong this) {
         return (int) value;
     }
 
     @Override
-    public long longValue() {
+    public @PolyValue long longValue(@PolyValue ULong this) {
         return value;
     }
 
     @Override
-    public float floatValue() {
+    public @PolyValue float floatValue(@PolyValue ULong this) {
         if (value < 0)
             return ((float) (value & Long.MAX_VALUE)) + Long.MAX_VALUE;
         else
@@ -179,7 +182,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
     }
 
     @Override
-    public double doubleValue() {
+    public @PolyValue double doubleValue(@PolyValue ULong this) {
         if (value < 0)
             return ((double) (value & Long.MAX_VALUE)) + Long.MAX_VALUE;
         else
@@ -187,7 +190,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness ULong this) {
         return Long.valueOf(value).hashCode();
     }
 

@@ -49,6 +49,8 @@ import org.jooq.TableField;
 import org.jooq.impl.DSL;
 import org.jooq.types.UNumber;
 
+import org.checkerframework.common.value.qual.IntVal;
+
 /**
  * A mock result set meta data object.
  *
@@ -123,7 +125,7 @@ public class MockResultSetMetaData implements ResultSetMetaData, Serializable {
     }
 
     @Override
-    public int isNullable(int column) throws SQLException {
+    public @IntVal({0,1, 2}) int isNullable(int column) throws SQLException {
         rs.checkNotClosed();
 
         // TODO: Check generated JSR-303 or JPA annotations for nullability

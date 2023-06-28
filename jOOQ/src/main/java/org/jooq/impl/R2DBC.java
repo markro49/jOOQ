@@ -133,6 +133,8 @@ import io.r2dbc.spi.Row;
 import io.r2dbc.spi.RowMetadata;
 import io.r2dbc.spi.Statement;
 
+import org.checkerframework.common.value.qual.IntVal;
+
 /**
  * A single namespace for all reactive {@link Subscription} and other
  * implementations.
@@ -1354,7 +1356,7 @@ final class R2DBC {
         }
 
         @Override
-        public final int isNullable(int column) throws SQLException {
+        public final @IntVal({0,1,2}) int isNullable(int column) throws SQLException {
             switch (meta(column).getNullability()) {
                 case NON_NULL:
                     return ResultSetMetaData.columnNoNulls;

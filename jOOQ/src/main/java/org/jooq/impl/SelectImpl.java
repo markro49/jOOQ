@@ -138,6 +138,8 @@ import org.jooq.impl.QOM.With;
 
 import org.jetbrains.annotations.Nullable;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A wrapper for a {@link SelectQuery}
  *
@@ -365,7 +367,7 @@ implements
     }
 
     @Override
-    public final SelectImpl from(String sql, Object... bindings) {
+    public final SelectImpl from(String sql, @UnknownSignedness Object... bindings) {
         return from(table(sql, bindings));
     }
 
@@ -416,7 +418,7 @@ implements
     }
 
     @Override
-    public final SelectImpl where(String sql, Object... bindings) {
+    public final SelectImpl where(String sql, @UnknownSignedness Object... bindings) {
         return where(condition(sql, bindings));
     }
 
@@ -478,7 +480,7 @@ implements
     }
 
     @Override
-    public final SelectImpl and(String sql, Object... bindings) {
+    public final SelectImpl and(String sql, @UnknownSignedness Object... bindings) {
         return and(condition(sql, bindings));
     }
 
@@ -547,7 +549,7 @@ implements
     }
 
     @Override
-    public final SelectImpl or(String sql, Object... bindings) {
+    public final SelectImpl or(String sql, @UnknownSignedness Object... bindings) {
         return or(condition(sql, bindings));
     }
 
@@ -882,354 +884,354 @@ implements
 
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1) {
         return seek(new Object[] { t1 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1) {
         return seekBefore(new Object[] { t1 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1) {
         return seekAfter(new Object[] { t1 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2) {
         return seek(new Object[] { t1, t2 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2) {
         return seekBefore(new Object[] { t1, t2 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2) {
         return seekAfter(new Object[] { t1, t2 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3) {
         return seek(new Object[] { t1, t2, t3 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3) {
         return seekBefore(new Object[] { t1, t2, t3 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3) {
         return seekAfter(new Object[] { t1, t2, t3 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4) {
         return seek(new Object[] { t1, t2, t3, t4 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4) {
         return seekBefore(new Object[] { t1, t2, t3, t4 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4) {
         return seekAfter(new Object[] { t1, t2, t3, t4 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5) {
         return seek(new Object[] { t1, t2, t3, t4, t5 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20, Object t21) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20, @UnknownSignedness Object t21) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20, Object t21) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20, @UnknownSignedness Object t21) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20, Object t21) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20, @UnknownSignedness Object t21) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20, Object t21, Object t22) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20, @UnknownSignedness Object t21, @UnknownSignedness Object t22) {
         return seek(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22 });
     }
 
     @Override
     @Deprecated
-    public final SelectSeekLimitStep<R> seekBefore(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20, Object t21, Object t22) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20, @UnknownSignedness Object t21, @UnknownSignedness Object t22) {
         return seekBefore(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22 });
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object t1, Object t2, Object t3, Object t4, Object t5, Object t6, Object t7, Object t8, Object t9, Object t10, Object t11, Object t12, Object t13, Object t14, Object t15, Object t16, Object t17, Object t18, Object t19, Object t20, Object t21, Object t22) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object t1, @UnknownSignedness Object t2, @UnknownSignedness Object t3, @UnknownSignedness Object t4, @UnknownSignedness Object t5, @UnknownSignedness Object t6, @UnknownSignedness Object t7, @UnknownSignedness Object t8, @UnknownSignedness Object t9, @UnknownSignedness Object t10, @UnknownSignedness Object t11, @UnknownSignedness Object t12, @UnknownSignedness Object t13, @UnknownSignedness Object t14, @UnknownSignedness Object t15, @UnknownSignedness Object t16, @UnknownSignedness Object t17, @UnknownSignedness Object t18, @UnknownSignedness Object t19, @UnknownSignedness Object t20, @UnknownSignedness Object t21, @UnknownSignedness Object t22) {
         return seekAfter(new Object[] { t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22 });
     }
 
@@ -1587,7 +1589,7 @@ implements
 
 
 
-    private final List<? extends Field<?>> seekValues(Object[] values) {
+    private final List<? extends Field<?>> seekValues(@UnknownSignedness Object[] values) {
         if (getQuery() instanceof SelectQueryImpl<R> s)
             return Tools.fields(values, map(
                 s.getOrderBy().fields(),
@@ -1599,7 +1601,7 @@ implements
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seek(Object... values) {
+    public final SelectSeekLimitStep<R> seek(@UnknownSignedness Object... values) {
         getQuery().addSeekAfter(seekValues(values));
         return this;
     }
@@ -1611,7 +1613,7 @@ implements
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekAfter(Object... values) {
+    public final SelectSeekLimitStep<R> seekAfter(@UnknownSignedness Object... values) {
         getQuery().addSeekAfter(seekValues(values));
         return this;
     }
@@ -1623,7 +1625,7 @@ implements
     }
 
     @Override
-    public final SelectSeekLimitStep<R> seekBefore(Object... values) {
+    public final SelectSeekLimitStep<R> seekBefore(@UnknownSignedness Object... values) {
         getQuery().addSeekBefore(Tools.fields(values));
         return this;
     }
@@ -2072,7 +2074,7 @@ implements
     }
 
     @Override
-    public final SelectImpl having(String sql, Object... bindings) {
+    public final SelectImpl having(String sql, @UnknownSignedness Object... bindings) {
         return having(condition(sql, bindings));
     }
 
@@ -2130,7 +2132,7 @@ implements
     }
 
     @Override
-    public final SelectImpl qualify(String sql, Object... bindings) {
+    public final SelectImpl qualify(String sql, @UnknownSignedness Object... bindings) {
         return qualify(condition(sql, bindings));
     }
 
@@ -2207,7 +2209,7 @@ implements
     }
 
     @Override
-    public final SelectImpl on(String sql, Object... bindings) {
+    public final SelectImpl on(String sql, @UnknownSignedness Object... bindings) {
         return on(condition(sql, bindings));
     }
 
@@ -2467,7 +2469,7 @@ implements
     }
 
     @Override
-    public final SelectImpl join(String sql, Object... bindings) {
+    public final SelectImpl join(String sql, @UnknownSignedness Object... bindings) {
         return innerJoin(sql, bindings);
     }
 
@@ -2492,7 +2494,7 @@ implements
     }
 
     @Override
-    public final SelectImpl innerJoin(String sql, Object... bindings) {
+    public final SelectImpl innerJoin(String sql, @UnknownSignedness Object... bindings) {
         return innerJoin(table(sql, bindings));
     }
 
@@ -2517,7 +2519,7 @@ implements
     }
 
     @Override
-    public final SelectImpl leftJoin(String sql, Object... bindings) {
+    public final SelectImpl leftJoin(String sql, @UnknownSignedness Object... bindings) {
         return leftOuterJoin(sql, bindings);
     }
 
@@ -2542,7 +2544,7 @@ implements
     }
 
     @Override
-    public final SelectImpl leftOuterJoin(String sql, Object... bindings) {
+    public final SelectImpl leftOuterJoin(String sql, @UnknownSignedness Object... bindings) {
         return leftOuterJoin(table(sql, bindings));
     }
 
@@ -2567,7 +2569,7 @@ implements
     }
 
     @Override
-    public final SelectImpl rightJoin(String sql, Object... bindings) {
+    public final SelectImpl rightJoin(String sql, @UnknownSignedness Object... bindings) {
         return rightOuterJoin(sql, bindings);
     }
 
@@ -2592,7 +2594,7 @@ implements
     }
 
     @Override
-    public final SelectImpl rightOuterJoin(String sql, Object... bindings) {
+    public final SelectImpl rightOuterJoin(String sql, @UnknownSignedness Object... bindings) {
         return rightOuterJoin(table(sql, bindings));
     }
 
@@ -2617,7 +2619,7 @@ implements
     }
 
     @Override
-    public final SelectImpl fullJoin(String sql, Object... bindings) {
+    public final SelectImpl fullJoin(String sql, @UnknownSignedness Object... bindings) {
         return fullOuterJoin(sql, bindings);
     }
 
@@ -2642,7 +2644,7 @@ implements
     }
 
     @Override
-    public final SelectImpl fullOuterJoin(String sql, Object... bindings) {
+    public final SelectImpl fullOuterJoin(String sql, @UnknownSignedness Object... bindings) {
         return fullOuterJoin(table(sql, bindings));
     }
 
@@ -2667,7 +2669,7 @@ implements
     }
 
     @Override
-    public final SelectJoinStep<R> crossJoin(String sql, Object... bindings) {
+    public final SelectJoinStep<R> crossJoin(String sql, @UnknownSignedness Object... bindings) {
         return crossJoin(table(sql, bindings));
     }
 
@@ -2692,7 +2694,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalJoin(String sql, Object... bindings) {
+    public final SelectImpl naturalJoin(String sql, @UnknownSignedness Object... bindings) {
         return naturalJoin(table(sql, bindings));
     }
 
@@ -2717,7 +2719,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalLeftOuterJoin(String sql, Object... bindings) {
+    public final SelectImpl naturalLeftOuterJoin(String sql, @UnknownSignedness Object... bindings) {
         return naturalLeftOuterJoin(table(sql, bindings));
     }
 
@@ -2742,7 +2744,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalRightOuterJoin(String sql, Object... bindings) {
+    public final SelectImpl naturalRightOuterJoin(String sql, @UnknownSignedness Object... bindings) {
         return naturalRightOuterJoin(table(sql, bindings));
     }
 
@@ -2767,7 +2769,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalFullOuterJoin(String sql, Object... bindings) {
+    public final SelectImpl naturalFullOuterJoin(String sql, @UnknownSignedness Object... bindings) {
         return naturalFullOuterJoin(table(sql, bindings));
     }
 
@@ -2792,7 +2794,7 @@ implements
     }
 
     @Override
-    public final SelectImpl crossApply(String sql, Object... bindings) {
+    public final SelectImpl crossApply(String sql, @UnknownSignedness Object... bindings) {
         return crossApply(table(sql, bindings));
     }
 
@@ -2817,7 +2819,7 @@ implements
     }
 
     @Override
-    public final SelectImpl outerApply(String sql, Object... bindings) {
+    public final SelectImpl outerApply(String sql, @UnknownSignedness Object... bindings) {
         return outerApply(table(sql, bindings));
     }
 
@@ -2859,7 +2861,7 @@ implements
     }
 
     @Override
-    public final SelectImpl straightJoin(String sql, Object... bindings) {
+    public final SelectImpl straightJoin(String sql, @UnknownSignedness Object... bindings) {
         return straightJoin(table(sql, bindings));
     }
 
@@ -3283,7 +3285,7 @@ implements
 
     private final Object[] values(int index, R... records) {
         Class<?> type = field(0).getType();
-        return map(records, r -> r.get(index, type), Object[]::new);
+        return map(records, r -> r.get(index, type), @UnknownSignedness Object[]::new);
     }
 
     @Override

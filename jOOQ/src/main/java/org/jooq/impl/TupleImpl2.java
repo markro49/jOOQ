@@ -47,6 +47,8 @@ import org.jooq.QueryPart;
 // ...
 import org.jooq.impl.QOM.Tuple2;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A generic tuple of degree 2, which acts as a {@link QueryPart} for traversal,
  * replacement, etc.
@@ -128,7 +130,7 @@ implements
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness TupleImpl2<Q1, Q2> this) {
         final int prime = 31;
         int result = super.hashCode();
         result = prime * result + Objects.hash(part1, part2);

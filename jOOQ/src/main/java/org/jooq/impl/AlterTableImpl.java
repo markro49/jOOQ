@@ -206,6 +206,8 @@ import org.jooq.TableElement;
 import org.jooq.impl.QOM.Cascade;
 import org.jooq.impl.QOM.UNotYetImplemented;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * @author Lukas Eder
  */
@@ -707,7 +709,7 @@ implements
     }
 
     @Override
-    public final AlterTableImpl defaultValue(Object literal) {
+    public final AlterTableImpl defaultValue(@UnknownSignedness Object literal) {
         return setDefault(literal);
     }
 
@@ -717,7 +719,7 @@ implements
     }
 
     @Override
-    public final AlterTableImpl default_(Object literal) {
+    public final AlterTableImpl default_(@UnknownSignedness Object literal) {
         return setDefault(literal);
     }
 
@@ -727,7 +729,7 @@ implements
     }
 
     @Override
-    public final AlterTableImpl setDefault(Object literal) {
+    public final AlterTableImpl setDefault(@UnknownSignedness Object literal) {
         return default_(Tools.field(literal));
     }
 

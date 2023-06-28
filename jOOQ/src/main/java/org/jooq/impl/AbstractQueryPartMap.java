@@ -54,6 +54,8 @@ import org.jooq.QueryPart;
 import org.jooq.impl.QOM.Tuple2;
 import org.jooq.impl.QOM.UnmodifiableList;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * @author Lukas Eder
  */
@@ -99,17 +101,17 @@ permits
     }
 
     @Override
-    public final boolean containsKey(Object key) {
+    public final boolean containsKey(@UnknownSignedness Object key) {
         return map.containsKey(key);
     }
 
     @Override
-    public final boolean containsValue(Object value) {
+    public final boolean containsValue(@UnknownSignedness Object value) {
         return map.containsValue(value);
     }
 
     @Override
-    public final V get(Object key) {
+    public final V get(@UnknownSignedness Object key) {
         return map.get(key);
     }
 
@@ -119,7 +121,7 @@ permits
     }
 
     @Override
-    public final V remove(Object key) {
+    public final V remove(@UnknownSignedness Object key) {
         return map.remove(key);
     }
 

@@ -70,6 +70,8 @@ import org.jooq.TableField;
 import org.jooq.impl.QOM.UTransient;
 import org.jooq.tools.JooqLogger;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 
 /**
  * A simple wrapper for <code>Field[]</code>, providing some useful lookup
@@ -628,7 +630,7 @@ final class FieldsImpl<R extends Record> extends AbstractQueryPart implements Re
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness FieldsImpl<R> this) {
         return Arrays.hashCode(fields);
     }
 }

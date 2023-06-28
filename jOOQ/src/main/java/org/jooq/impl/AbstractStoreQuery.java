@@ -50,6 +50,8 @@ import org.jooq.StoreQuery;
 import org.jooq.Table;
 import org.jooq.impl.QOM.UTransient;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A default implementation for store queries.
  *
@@ -122,7 +124,7 @@ implements
         }
 
         @Override
-        public int hashCode() {
+        public int hashCode(@UnknownSignedness UnknownField<T> this) {
             return index;
         }
 

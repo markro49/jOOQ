@@ -69,6 +69,9 @@ import org.jooq.impl.QOM.UnmodifiableCollection;
 
 import org.jetbrains.annotations.NotNull;
 
+import org.checkerframework.checker.signedness.qual.PolySigned;
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A {@link List} view, delegating all calls to a wrapped list, but acting like
  * a {@link QueryPart}.
@@ -278,7 +281,7 @@ permits
     }
 
     @Override
-    public final boolean contains(Object o) {
+    public final boolean contains(@UnknownSignedness Object o) {
         return wrapped.contains(o);
     }
 
@@ -288,7 +291,7 @@ permits
     }
 
     @Override
-    public final Object[] toArray() {
+    public final @PolySigned Object[] toArray(QueryPartCollectionView<@PolySigned T> this) {
         return wrapped.toArray();
     }
 
@@ -310,7 +313,7 @@ permits
     }
 
     @Override
-    public final boolean remove(Object o) {
+    public final boolean remove(@UnknownSignedness Object o) {
         return wrapped.remove(o);
     }
 
@@ -378,12 +381,12 @@ permits
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness QueryPartCollectionView<T> this) {
         return wrapped.hashCode();
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(@UnknownSignedness Object that) {
         // [#11126] Speed up comparisons of two QueryPartCollectionViews of the same type
 
         if (this == that)

@@ -44,6 +44,8 @@ import java.time.YearMonth;
 import org.jooq.Field;
 import org.jooq.SQLDialect;
 
+import org.checkerframework.common.value.qual.PolyValue;
+
 /**
  * A substitute for JDBC's missing <code>java.sql.Interval</code> data type.
  * <p>
@@ -149,22 +151,22 @@ public interface Interval extends Serializable {
     /**
      * @see Number#doubleValue()
      */
-    double doubleValue();
+    @PolyValue double doubleValue(@PolyValue Interval this);
 
     /**
      * @see Number#floatValue()
      */
-    float floatValue();
+    @PolyValue float floatValue(@PolyValue Interval this);
 
     /**
      * @see Number#longValue()
      */
-    long longValue();
+    @PolyValue long longValue(@PolyValue Interval this);
 
     /**
      * @see Number#intValue()
      */
-    int intValue();
+    @PolyValue int intValue(@PolyValue Interval this);
 
     /**
      * @see Number#byteValue()
