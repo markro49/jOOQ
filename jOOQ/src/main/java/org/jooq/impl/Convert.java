@@ -47,10 +47,10 @@ import static org.jooq.impl.Tools.configuration;
 import static org.jooq.impl.Tools.emulateMultiset;
 import static org.jooq.tools.reflect.Reflect.accessible;
 import static org.jooq.tools.reflect.Reflect.wrapper;
-import static org.jooq.types.Unsigned.ubyte;
-import static org.jooq.types.Unsigned.uint;
-import static org.jooq.types.Unsigned.ulong;
-import static org.jooq.types.Unsigned.ushort;
+import static org.jooq.types.UnsignedX.ubyte;
+import static org.jooq.types.UnsignedX.uint;
+import static org.jooq.types.UnsignedX.ulong;
+import static org.jooq.types.UnsignedX.ushort;
 
 import java.io.File;
 import java.io.StringReader;

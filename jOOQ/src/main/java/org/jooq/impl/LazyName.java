@@ -45,6 +45,8 @@ import org.jooq.QueryPartInternal;
 import org.jooq.Schema;
 // ...
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A qualified {@link Name} that is evaluated lazily, e.g. to prevent cycles in
  * static initialisation of generated code, when the {@link Schema} instance may
@@ -156,7 +158,7 @@ final class LazyName extends AbstractName {
     // ------------------------------------------------------------------------
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness LazyName this) {
         return name().hashCode();
     }
 }

@@ -1165,12 +1165,13 @@ final class ResultImpl<R extends Record> extends AbstractResult<R> implements Re
     }
 
     @Override
-    public final @PolyNull Object[] toArray(ResultImpl<@PolyNull R> this) {
+    //public final @PolyNull @PolySigned Object[] toArray(ResultImpl<@PolyNull @PolySigned R> this) {
+    public final @PolyNull @PolySigned Object[] toArray(ResultImpl<@PolyNull R> this) {
         return records.toArray();
     }
 
     @Override
-    public final <T> @Nullable T[] toArray(@PolyNull T[] a) {
+    public final <T extends @UnknownSignedness Object> @Nullable T[] toArray(@PolyNull T[] a) {
         return records.toArray(a);
     }
 

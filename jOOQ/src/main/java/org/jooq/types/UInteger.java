@@ -18,7 +18,9 @@ package org.jooq.types;
 import java.io.ObjectStreamException;
 import java.math.BigInteger;
 
+import org.checkerframework.checker.signedness.qual.Signed;
 import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.checker.signedness.qual.Unsigned;
 import org.checkerframework.common.value.qual.PolyValue;
 
 /**
@@ -51,36 +53,36 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     /**
      * Cached values
      */
-    private static final UInteger[]      VALUES                = mkValues();
+    private static final @Unsigned UInteger[]      VALUES                = mkValues();
 
     /**
      * A constant holding the minimum value an <code>unsigned int</code> can
      * have, 0.
      */
-    public static final long             MIN_VALUE             = 0x00000000;
+    public static final @Unsigned long             MIN_VALUE             = 0x00000000;
 
     /**
      * A constant holding the maximum value an <code>unsigned int</code> can
      * have, 2<sup>32</sup>-1.
      */
-    public static final long             MAX_VALUE             = 0xffffffffL;
+    public static final @Unsigned long             MAX_VALUE             = 0xffffffffL;
 
     /**
      * A constant holding the minimum value an <code>unsigned int</code> can
      * have as UInteger, 0.
      */
-    public static final UInteger         MIN                   = valueOf(MIN_VALUE);
+    public static final @Unsigned UInteger         MIN                   = valueOf(MIN_VALUE);
 
     /**
      * A constant holding the maximum value an <code>unsigned int</code> can
      * have as UInteger, 2<sup>32</sup>-1.
      */
-    public static final UInteger         MAX                   = valueOf(MAX_VALUE);
+    public static final @Unsigned UInteger         MAX                   = valueOf(MAX_VALUE);
 
     /**
      * The value modelling the content of this <code>unsigned int</code>
      */
-    private final long                   value;
+    private final @Unsigned long                   value;
 
     /**
      * Figure out the size of the precache.
@@ -137,7 +139,8 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      *
      * @return Array of cached values for UInteger
      */
-    private static final UInteger[] mkValues() {
+    @SuppressWarnings("signedness:return")
+    private static final @Unsigned UInteger[] mkValues() {
         int precacheSize = getPrecacheSize();
         UInteger[] ret;
 
@@ -160,7 +163,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @param unused Unused parameter to distinguish between this and the
      *            deprecated public constructor.
      */
-    private UInteger(long value, boolean unused) {
+    private UInteger(@Unsigned long value, boolean unused) {
         this.value = value;
     }
 
@@ -170,7 +173,8 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @param value Cached value to retrieve
      * @return Cached value if one exists. Null otherwise.
      */
-    private static UInteger getCached(long value) {
+    @SuppressWarnings("signedness:comparison")
+    private static @Unsigned UInteger getCached(@Unsigned long value) {
         if (VALUES != null && value < VALUES.length)
             return VALUES[(int) value];
 
@@ -180,8 +184,9 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     /**
      * Get the value of a long without checking the value.
      */
-    private static UInteger valueOfUnchecked(long value) {
-        UInteger cached;
+    @SuppressWarnings("signedness:return")
+    private static @Unsigned UInteger valueOfUnchecked(@Unsigned long value) {
+        @Unsigned UInteger cached;
 
         if ((cached = getCached(value)) != null)
             return cached;
@@ -195,7 +200,8 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned int</code>.
      */
-    public static UInteger valueOf(String value) throws NumberFormatException {
+    @SuppressWarnings("signedness:argument")
+    public static @Unsigned UInteger valueOf(String value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(Long.parseLong(value)));
     }
 
@@ -204,7 +210,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * <code>0xFFFFFFFF</code> i.e. <code>(int) -1</code> becomes
      * <code>(uint) 4294967295</code>
      */
-    public static UInteger valueOf(int value) {
+    public static @Unsigned UInteger valueOf(@Unsigned int value) {
         return valueOfUnchecked(value & MAX_VALUE);
     }
 
@@ -214,7 +220,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static UInteger valueOf(long value) throws NumberFormatException {
+    public static @Unsigned UInteger valueOf(@Unsigned long value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -224,7 +230,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned int</code>
      */
-    private UInteger(long value) throws NumberFormatException {
+    private UInteger(@Unsigned long value) throws NumberFormatException {
         this.value = rangeCheck(value);
     }
 
@@ -233,7 +239,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * <code>0xFFFFFFFF</code> i.e. <code>(int) -1</code> becomes
      * <code>(uint) 4294967295</code>
      */
-    private UInteger(int value) {
+    private UInteger(@Unsigned int value) {
         this.value = value & MAX_VALUE;
     }
 
@@ -243,6 +249,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned int</code>.
      */
+    @SuppressWarnings("signedness:argument")
     private UInteger(String value) throws NumberFormatException {
         this.value = rangeCheck(Long.parseLong(value));
     }
@@ -254,9 +261,10 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @return value if it is in range
      * @throws NumberFormatException if value is out of range
      */
-    private static long rangeCheck(long value) throws NumberFormatException {
+    @SuppressWarnings({"signedness:comparison", "signedness:cast"})
+    private static @Unsigned long rangeCheck(@Unsigned long value) throws NumberFormatException {
         if (value < MIN_VALUE || value > MAX_VALUE)
-            throw new NumberFormatException("Value is out of range : " + value);
+            throw new NumberFormatException("Value is out of range : " + (@Signed long)value);
 
         return value;
     }
@@ -268,6 +276,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      *         this object
      * @throws ObjectStreamException
      */
+    @SuppressWarnings("signedness:return")
     private Object readResolve() throws ObjectStreamException {
         UInteger cached;
 
@@ -280,31 +289,37 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     }
 
     @Override
+    @SuppressWarnings("allcheckers:return")
     public @PolyValue int intValue(@PolyValue UInteger this) {
         return (int) value;
     }
 
     @Override
+    @SuppressWarnings("allcheckers:return")
     public @PolyValue long longValue(@PolyValue UInteger this) {
         return value;
     }
 
     @Override
+    @SuppressWarnings("value:return")
     public @PolyValue float floatValue(@PolyValue UInteger this) {
         return value;
     }
 
     @Override
+    @SuppressWarnings("value:return")
     public @PolyValue double doubleValue(@PolyValue UInteger this) {
         return value;
     }
 
     @Override
+    @SuppressWarnings("signedness:argument")
     public BigInteger toBigInteger() {
         return BigInteger.valueOf(value);
     }
 
     @Override
+    @SuppressWarnings("signedness:method.invocation")
     public int hashCode(@UnknownSignedness UInteger this) {
         return Long.valueOf(value).hashCode();
     }
@@ -320,28 +335,30 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     }
 
     @Override
+    @SuppressWarnings("signedness:method.invocation")
     public String toString() {
         return Long.valueOf(value).toString();
     }
 
     @Override
+    @SuppressWarnings("signedness:comparison")
     public int compareTo(UInteger o) {
         return (value < o.value ? -1 : (value == o.value ? 0 : 1));
     }
 
-    public UInteger add(final UInteger val) {
+    public @Unsigned UInteger add(final @Unsigned UInteger val) {
         return valueOf(value + val.value);
     }
 
-    public UInteger add(final int val) {
+    public @Unsigned UInteger add(final @Unsigned int val) {
         return valueOf(value + val);
     }
 
-    public UInteger subtract(final UInteger val) {
+    public @Unsigned UInteger subtract(final @Unsigned UInteger val) {
         return valueOf(value - val.value);
     }
 
-    public UInteger subtract(final int val) {
+    public @Unsigned UInteger subtract(final @Unsigned int val) {
         return valueOf(value - val);
     }
 }

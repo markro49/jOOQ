@@ -18,6 +18,7 @@ package org.jooq.types;
 import java.math.BigInteger;
 
 import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.checker.signedness.qual.Unsigned;
 import org.checkerframework.common.value.qual.PolyValue;
 
 /**
@@ -38,13 +39,15 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * A constant holding the minimum value an <code>unsigned long</code> can
      * have, 0.
      */
-    public static final BigInteger MIN_VALUE        = BigInteger.ZERO;
+    @SuppressWarnings("signedness:assignment")
+    public static final @Unsigned BigInteger MIN_VALUE        = BigInteger.ZERO;
 
     /**
      * A constant holding the maximum value an <code>unsigned long</code> can
      * have, 2<sup>64</sup>-1.
      */
-    public static final BigInteger MAX_VALUE        = new BigInteger("18446744073709551615");
+    @SuppressWarnings("signedness:assignment")
+    public static final @Unsigned BigInteger MAX_VALUE        = new BigInteger("18446744073709551615");
 
     /**
      * A constant holding the maximum value + 1 an <code>signed long</code> can
@@ -56,18 +59,19 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * A constant holding the minimum value an <code>unsigned long</code> can
      * have as ULong, 0.
      */
-    public static final ULong      MIN              = valueOf(MIN_VALUE.longValue());
+    @SuppressWarnings({"signedness:argument", "signedness:assignment", "signedness:method.invocation"})
+    public static final @Unsigned ULong      MIN              = valueOf(MIN_VALUE.longValue());
 
     /**
      * A constant holding the maximum value + 1 an <code>signed long</code> can
      * have as ULong, 2<sup>63</sup>.
      */
-    public static final ULong      MAX              = valueOf(MAX_VALUE);
+    public static final @Unsigned ULong      MAX              = valueOf(MAX_VALUE);
 
     /**
      * The value modelling the content of this <code>unsigned long</code>
      */
-    private final long             value;
+    private final @Unsigned long             value;
 
     /**
      * Create an <code>unsigned long</code>
@@ -75,7 +79,8 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned long</code>.
      */
-    public static ULong valueOf(String value) throws NumberFormatException {
+    @SuppressWarnings("signedness:return")
+    public static @Unsigned ULong valueOf(String value) throws NumberFormatException {
         return new ULong(value);
     }
 
@@ -84,7 +89,8 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * <code>0xFFFFFFFFFFFFFFFF</code> i.e. <code>(long) -1</code> becomes
      * <code>(uint) 18446744073709551615</code>
      */
-    public static ULong valueOf(long value) {
+    @SuppressWarnings("signedness:return")
+    public static @Unsigned ULong valueOf(@Unsigned long value) {
         return new ULong(value);
     }
 
@@ -94,11 +100,13 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned long</code>
      */
-    public static ULong valueOf(BigInteger value) throws NumberFormatException {
+    @SuppressWarnings("signedness:return")
+    public static @Unsigned ULong valueOf(@Unsigned BigInteger value) throws NumberFormatException {
         return new ULong(value);
     }
 
-    public static int compare(long x, long y) {
+    @SuppressWarnings("signedness:comparison")
+    public static int compare(@Unsigned long x, @Unsigned long y) {
         x += Long.MIN_VALUE;
         y += Long.MIN_VALUE;
         return (x < y) ? -1 : ((x == y) ? 0 : 1);
@@ -110,7 +118,8 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned long</code>
      */
-    private ULong(BigInteger value) throws NumberFormatException {
+    @SuppressWarnings({"signedness:argument", "signedness:assignment", "signedness:method.invocation"})
+    private ULong(@Unsigned BigInteger value) throws NumberFormatException {
         if (value.compareTo(MIN_VALUE) < 0 || value.compareTo(MAX_VALUE) > 0)
             throw new NumberFormatException();
         else
@@ -122,7 +131,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * <code>0xFFFFFFFFFFFFFFFF</code> i.e. <code>(long) -1</code> becomes
      * <code>(uint) 18446744073709551615</code>
      */
-    private ULong(long value) {
+    private ULong(@Unsigned long value) {
         this.value = value;
     }
 
@@ -132,6 +141,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned long</code>.
      */
+    @SuppressWarnings({"signedness:argument", "signedness:assignment"})
     private ULong(String value) throws NumberFormatException {
         if (value == null)
             throw new NumberFormatException("null");
@@ -164,16 +174,19 @@ public final class ULong extends UNumber implements Comparable<ULong> {
     }
 
     @Override
+    @SuppressWarnings("allcheckers:return")
     public @PolyValue int intValue(@PolyValue ULong this) {
         return (int) value;
     }
 
     @Override
+    @SuppressWarnings("allcheckers:return")
     public @PolyValue long longValue(@PolyValue ULong this) {
         return value;
     }
 
     @Override
+    @SuppressWarnings({"signedness:comparison", "value:return"})
     public @PolyValue float floatValue(@PolyValue ULong this) {
         if (value < 0)
             return ((float) (value & Long.MAX_VALUE)) + Long.MAX_VALUE;
@@ -182,6 +195,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
     }
 
     @Override
+    @SuppressWarnings({"signedness:comparison", "value:return"})
     public @PolyValue double doubleValue(@PolyValue ULong this) {
         if (value < 0)
             return ((double) (value & Long.MAX_VALUE)) + Long.MAX_VALUE;
@@ -190,6 +204,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
     }
 
     @Override
+    @SuppressWarnings("signedness:method.invocation")
     public int hashCode(@UnknownSignedness ULong this) {
         return Long.valueOf(value).hashCode();
     }
@@ -203,6 +218,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
     }
 
     @Override
+    @SuppressWarnings("signedness:comparison")
     public String toString() {
         if (value >= 0)
             return Long.toString(value);
@@ -215,6 +231,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
         return compare(value, o.value);
     }
 
+    @SuppressWarnings({"signedness:comparison", "signedness:return"})
     public ULong add(ULong val) throws NumberFormatException {
         if (value < 0 && val.value < 0)
             throw new NumberFormatException();
@@ -226,11 +243,12 @@ public final class ULong extends UNumber implements Comparable<ULong> {
         return valueOf(result);
     }
 
-    public ULong add(int val) throws NumberFormatException {
+    public @Unsigned ULong add(@Unsigned int val) throws NumberFormatException {
         return add((long) val);
     }
 
-    public ULong add(long val) throws NumberFormatException {
+    @SuppressWarnings({"signedness:comparison", "signedness:argument"})
+    public @Unsigned ULong add(@Unsigned long val) throws NumberFormatException {
         if (val < 0)
             return subtract(Math.abs(val));
 
@@ -241,7 +259,8 @@ public final class ULong extends UNumber implements Comparable<ULong> {
         return valueOf(result);
     }
 
-    public ULong subtract(final ULong val) {
+    @SuppressWarnings({"signedness:comparison", "signedness:argument"})
+    public @Unsigned ULong subtract(final @Unsigned ULong val) {
         if (this.compareTo(val) < 0)
             throw new NumberFormatException();
 
@@ -252,11 +271,12 @@ public final class ULong extends UNumber implements Comparable<ULong> {
         return valueOf(result);
     }
 
-    public ULong subtract(final int val) {
+    public @Unsigned ULong subtract(final @Unsigned int val) {
         return subtract((long) val);
     }
 
-    public ULong subtract(final long val) {
+    @SuppressWarnings({"signedness:comparison", "signedness:argument"})
+    public @Unsigned ULong subtract(final @Unsigned long val) {
         if (val < 0)
             return add(-val);
 

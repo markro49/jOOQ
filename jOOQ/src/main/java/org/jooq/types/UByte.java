@@ -18,7 +18,9 @@ package org.jooq.types;
 import java.io.ObjectStreamException;
 import java.math.BigInteger;
 
+import org.checkerframework.checker.signedness.qual.Signed;
 import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+import org.checkerframework.checker.signedness.qual.Unsigned;
 import org.checkerframework.common.value.qual.IntRange;
 import org.checkerframework.common.value.qual.PolyValue;
 
@@ -39,47 +41,48 @@ public final class UByte extends UNumber implements Comparable<UByte> {
     /**
      * Cached values
      */
-    private static final UByte[] VALUES           = mkValues();
+    private static final @Unsigned UByte[] VALUES           = mkValues();
 
     /**
      * A constant holding the minimum value an <code>unsigned byte</code> can
      * have, 0.
      */
-    public static final short    MIN_VALUE        = 0x00;
+    public static final @Unsigned short    MIN_VALUE        = 0x00;
 
     /**
      * A constant holding the maximum value an <code>unsigned byte</code> can
      * have, 2<sup>8</sup>-1.
      */
-    public static final short    MAX_VALUE        = 0xff;
+    public static final @Unsigned short    MAX_VALUE        = 0xff;
 
     /**
      * A constant holding the minimum value an <code>unsigned byte</code> can
      * have as UByte, 0.
      */
-    public static final UByte    MIN              = valueOf(0x00);
+    public static final @Unsigned UByte    MIN              = valueOf(0x00);
 
     /**
      * A constant holding the maximum value an <code>unsigned byte</code> can
      * have as UByte, 2<sup>8</sup>-1.
      */
-    public static final UByte    MAX              = valueOf(0xff);
+    public static final @Unsigned UByte    MAX              = valueOf(0xff);
 
     /**
      * The value modelling the content of this <code>unsigned byte</code>
      */
-    private final @IntRange(from = 0, to =255) short value;
+    private final @Unsigned @IntRange(from = 0, to =255) short value;
 
     /**
      * Generate a cached value for each byte value.
      *
      * @return Array of cached values for UByte.
      */
-    private static final UByte[] mkValues() {
+    @SuppressWarnings({"signedness:operation", "signedness:cast", "signedness:return"})
+    private static final @Unsigned UByte[] mkValues() {
         UByte[] ret = new UByte[256];
 
         for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; i++)
-            ret[i & MAX_VALUE] = new UByte((byte) i);
+            ret[i & MAX_VALUE] = new UByte((@Unsigned byte) i);
 
         return ret;
     }
@@ -90,7 +93,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned byte</code>.
      */
-    public static UByte valueOf(String value) throws NumberFormatException {
+    @SuppressWarnings("allcheckers:argument") // rangeCheck guarantees UByte range
+    public static @Unsigned UByte valueOf(String value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(Short.parseShort(value)));
     }
 
@@ -99,14 +103,14 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * <code>0xFF</code> i.e. <code>(byte) -1</code> becomes
      * <code>(ubyte) 255</code>
      */
-    public static UByte valueOf(byte value) {
+    public static @Unsigned UByte valueOf(@Unsigned byte value) {
         return valueOfUnchecked((short) (value & MAX_VALUE));
     }
 
     /**
      * Get the value of a short without checking the value.
      */
-    private static UByte valueOfUnchecked(short value) throws NumberFormatException {
+    private static @Unsigned UByte valueOfUnchecked(@Unsigned short value) throws NumberFormatException {
         return VALUES[value & MAX_VALUE];
     }
 
@@ -116,7 +120,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static UByte valueOf(@IntRange(from = 0, to =255) short value) throws NumberFormatException {
+    public static @Unsigned UByte valueOf(@Unsigned @IntRange(from = 0, to =255) short value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -126,7 +130,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static UByte valueOf(@IntRange(from = 0, to =255) int value) throws NumberFormatException {
+    public static @Unsigned UByte valueOf(@Unsigned @IntRange(from = 0, to =255) int value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -136,7 +140,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static UByte valueOf(@IntRange(from = 0, to =255) long value) throws NumberFormatException {
+    public static @Unsigned UByte valueOf(@Unsigned @IntRange(from = 0, to =255) long value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -146,7 +150,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    private UByte(@IntRange(from = 0, to =255) long value) throws NumberFormatException {
+    @SuppressWarnings("value:assignment") // rangeCheck guarantees UByte range
+    private UByte(@Unsigned @IntRange(from = 0, to =255) long value) throws NumberFormatException {
         this.value = rangeCheck(value);
     }
 
@@ -156,7 +161,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    private UByte(@IntRange(from = 0, to =255) int value) throws NumberFormatException {
+    @SuppressWarnings("value:assignment") // rangeCheck guarantees UByte range
+    private UByte(@Unsigned @IntRange(from = 0, to =255) int value) throws NumberFormatException {
         this.value = rangeCheck(value);
     }
 
@@ -166,7 +172,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    private UByte(@IntRange(from = 0, to =255) short value) throws NumberFormatException {
+    @SuppressWarnings("value:assignment") // rangeCheck guarantees UByte range
+    private UByte(@Unsigned @IntRange(from = 0, to =255) short value) throws NumberFormatException {
         this.value = rangeCheck(value);
     }
 
@@ -174,8 +181,9 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * Create an <code>unsigned byte</code> by masking it with <code>0xFF</code>
      * i.e. <code>(byte) -1</code> becomes <code>(ubyte) 255</code>
      */
-    private UByte(byte value) {
-        this.value = (short) (value & MAX_VALUE);
+    @SuppressWarnings("value:cast")
+    private UByte(@Unsigned byte value) {
+        this.value = (@Unsigned @IntRange(from = 0, to =255) short) (value & MAX_VALUE);
     }
 
     /**
@@ -184,6 +192,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned byte</code>.
      */
+    @SuppressWarnings({"allcheckers:argument", "value:assignment"}) // rangeCheck guarantees UByte range
     private UByte(String value) throws NumberFormatException {
         this.value = rangeCheck(Short.parseShort(value));
     }
@@ -195,7 +204,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @return value if it is in range
      * @throws NumberFormatException if value is out of range
      */
-    private static short rangeCheck(@IntRange(from = 0, to =255) short value) throws NumberFormatException {
+    @SuppressWarnings("signedness:comparison")
+    private static @Unsigned short rangeCheck(@Unsigned @IntRange(from = 0, to =255) short value) throws NumberFormatException {
         if (value < MIN_VALUE || value > MAX_VALUE)
             throw new NumberFormatException("Value is out of range : " + value);
 
@@ -209,7 +219,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @return value if it is in range
      * @throws NumberFormatException if value is out of range
      */
-    private static short rangeCheck(@IntRange(from = 0, to =255) int value) throws NumberFormatException {
+    @SuppressWarnings("signedness:comparison")
+    private static @Unsigned short rangeCheck(@Unsigned @IntRange(from = 0, to =255) int value) throws NumberFormatException {
         if (value < MIN_VALUE || value > MAX_VALUE)
             throw new NumberFormatException("Value is out of range : " + value);
 
@@ -223,7 +234,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @return value if it is in range
      * @throws NumberFormatException if value is out of range
      */
-    private static short rangeCheck(@IntRange(from = 0, to =255) long value) throws NumberFormatException {
+    @SuppressWarnings("signedness:comparison")
+    private static @Unsigned short rangeCheck(@Unsigned @IntRange(from = 0, to =255) long value) throws NumberFormatException {
         if (value < MIN_VALUE || value > MAX_VALUE)
             throw new NumberFormatException("Value is out of range : " + value);
 
@@ -238,26 +250,31 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @return cached instance of this object's value
      * @throws ObjectStreamException
      */
+    @SuppressWarnings("signedness:return")
     private Object readResolve() throws ObjectStreamException {
         return valueOf(value);
     }
 
     @Override
+    @SuppressWarnings("value:return")
     public @PolyValue int intValue(@PolyValue UByte this) {
         return value;
     }
 
     @Override
+    @SuppressWarnings("value:return")
     public @PolyValue long longValue(@PolyValue UByte this) {
         return value;
     }
 
     @Override
+    @SuppressWarnings("value:return")
     public @PolyValue float floatValue(@PolyValue UByte this) {
         return value;
     }
 
     @Override
+    @SuppressWarnings("value:return")
     public @PolyValue double doubleValue(@PolyValue UByte this) {
         return value;
     }
@@ -292,19 +309,23 @@ public final class UByte extends UNumber implements Comparable<UByte> {
         return BigInteger.valueOf(value);
     }
 
-    public UByte add(UByte val) throws NumberFormatException {
+    @SuppressWarnings("value:argument") // valueOf guarantees UByte range
+    public @Unsigned UByte add(@Unsigned UByte val) throws NumberFormatException {
         return valueOf(value + val.value);
     }
 
-    public UByte add(int val) throws NumberFormatException {
+    @SuppressWarnings("value:argument") // valueOf guarantees UByte range
+    public @Unsigned UByte add(@Unsigned int val) throws NumberFormatException {
         return valueOf(value + val);
     }
 
-    public UByte subtract(final UByte val) {
+    @SuppressWarnings("value:argument") // valueOf guarantees UByte range
+    public @Unsigned UByte subtract(final @Unsigned UByte val) {
         return valueOf(value - val.value);
     }
 
-    public UByte subtract(final int val) {
+    @SuppressWarnings("value:argument") // valueOf guarantees UByte range
+    public @Unsigned UByte subtract(final @Unsigned int val) {
         return valueOf(value - val);
     }
 }
