@@ -291,7 +291,7 @@ permits
     }
 
     @Override
-    public final @PolySigned Object[] toArray(QueryPartCollectionView<@PolySigned T> this) {
+    public final @PolySigned Object[] toArray() {
         return wrapped.toArray();
     }
 
@@ -381,7 +381,7 @@ permits
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness QueryPartCollectionView<T> this) {
+    public int hashCode() {
         return wrapped.hashCode();
     }
 

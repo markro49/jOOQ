@@ -14,8 +14,6 @@ import java.util.StringTokenizer;
 
 import org.jetbrains.annotations.ApiStatus.Internal;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * This implements a class that handles the PostgreSQL interval type.
  */
@@ -526,7 +524,7 @@ public class PGInterval extends PGobject {
    * @return hashCode
    */
   @Override
-  public int hashCode(@UnknownSignedness PGInterval this) {
+  public int hashCode() {
     if (isNull) {
       return 0;
     }

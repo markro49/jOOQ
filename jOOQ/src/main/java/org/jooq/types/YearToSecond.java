@@ -46,7 +46,6 @@ import java.util.regex.Pattern;
 import org.jooq.tools.Convert;
 import org.jooq.tools.StringUtils;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
 import org.checkerframework.common.value.qual.PolyValue;
 
 /**
@@ -317,7 +316,7 @@ public final class YearToSecond extends Number implements Interval, Comparable<Y
     }
 
     @Override
-    public int hashCode(@UnknownSignedness YearToSecond this) {
+    public int hashCode() {
         final int prime = 31;
         int result = 0;
         int h1 = dayToSecond.hashCode();

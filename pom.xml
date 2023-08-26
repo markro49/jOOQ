@@ -30,7 +30,7 @@
         <hsqldb.version>2.7.2</hsqldb.version>
 
         <!-- Checker Framework version -->
-        <checker-framework.version>3.35.0</checker-framework.version>
+        <checker-framework.version>3.37.0</checker-framework.version>
 
         <!-- JDBC drivers for jOOQ-xyz-extensions modules and vendor-specific API access -->
         <postgres.version>42.5.4</postgres.version>

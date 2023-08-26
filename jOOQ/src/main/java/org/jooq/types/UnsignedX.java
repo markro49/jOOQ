@@ -38,7 +38,7 @@ public final class UnsignedX {
      *             parsable <code>unsigned byte</code>.
      * @see UByte#valueOf(String)
      */
-    public @Unsigned static UByte ubyte(String value) throws NumberFormatException {
+    public static UByte ubyte(String value) throws NumberFormatException {
         return value == null ? null : UByte.valueOf(value);
     }
 
@@ -48,7 +48,7 @@ public final class UnsignedX {
      *
      * @see UByte#valueOf(byte)
      */
-    public static @Unsigned UByte ubyte(@Unsigned byte value) {
+    public static UByte ubyte(@Unsigned byte value) {
         return UByte.valueOf(value);
     }
 
@@ -59,7 +59,7 @@ public final class UnsignedX {
      *             of an <code>unsigned byte</code>
      * @see UByte#valueOf(short)
      */
-    public static @Unsigned UByte ubyte(@Unsigned @IntRange(from = 0, to =255) short value) throws NumberFormatException {
+    public static UByte ubyte(@Unsigned @IntRange(from = 0, to =255) short value) throws NumberFormatException {
         return UByte.valueOf(value);
     }
 
@@ -70,7 +70,7 @@ public final class UnsignedX {
      *             of an <code>unsigned byte</code>
      * @see UByte#valueOf(short)
      */
-    public static @Unsigned UByte ubyte(@Unsigned @IntRange(from = 0, to =255) int value) throws NumberFormatException {
+    public static UByte ubyte(@Unsigned @IntRange(from = 0, to =255) int value) throws NumberFormatException {
         return UByte.valueOf(value);
     }
 
@@ -81,7 +81,7 @@ public final class UnsignedX {
      *             of an <code>unsigned byte</code>
      * @see UByte#valueOf(short)
      */
-    public static @Unsigned UByte ubyte(@Unsigned @IntRange(from = 0, to =255) long value) throws NumberFormatException {
+    public static UByte ubyte(@Unsigned @IntRange(from = 0, to =255) long value) throws NumberFormatException {
         return UByte.valueOf(value);
     }
 
@@ -92,7 +92,7 @@ public final class UnsignedX {
      *             parsable <code>unsigned short</code>.
      * @see UShort#valueOf(String)
      */
-    public static @Unsigned UShort ushort(String value) throws NumberFormatException {
+    public static UShort ushort(String value) throws NumberFormatException {
         return value == null ? null : UShort.valueOf(value);
     }
 
@@ -103,7 +103,7 @@ public final class UnsignedX {
      *
      * @see UShort#valueOf(short)
      */
-    public static @Unsigned UShort ushort(@Unsigned short value) {
+    public static UShort ushort(@Unsigned short value) {
         return UShort.valueOf(value);
     }
 
@@ -114,7 +114,7 @@ public final class UnsignedX {
      *             of an <code>unsigned short</code>
      * @see UShort#valueOf(int)
      */
-    public static @Unsigned UShort ushort(@Unsigned int value) throws NumberFormatException {
+    public static UShort ushort(@Unsigned int value) throws NumberFormatException {
         return UShort.valueOf(value);
     }
 
@@ -125,7 +125,7 @@ public final class UnsignedX {
      *             parsable <code>unsigned int</code>.
      * @see UInteger#valueOf(String)
      */
-    public static @Unsigned UInteger uint(String value) throws NumberFormatException {
+    public static UInteger uint(String value) throws NumberFormatException {
         return value == null ? null : UInteger.valueOf(value);
     }
 
@@ -136,7 +136,7 @@ public final class UnsignedX {
      *
      * @see UInteger#valueOf(int)
      */
-    public static @Unsigned UInteger uint(@Unsigned int value) {
+    public static UInteger uint(@Unsigned int value) {
         return UInteger.valueOf(value);
     }
 
@@ -147,7 +147,7 @@ public final class UnsignedX {
      *             of an <code>unsigned int</code>
      * @see UInteger#valueOf(long)
      */
-    public static @Unsigned UInteger uint(@Unsigned long value) throws NumberFormatException {
+    public static UInteger uint(@Unsigned long value) throws NumberFormatException {
         return UInteger.valueOf(value);
     }
 
@@ -158,7 +158,7 @@ public final class UnsignedX {
      *             parsable <code>unsigned long</code>.
      * @see ULong#valueOf(String)
      */
-    public static @Unsigned ULong ulong(String value) throws NumberFormatException {
+    public static ULong ulong(String value) throws NumberFormatException {
         return value == null ? null : ULong.valueOf(value);
     }
 
@@ -169,7 +169,7 @@ public final class UnsignedX {
      *
      * @see ULong#valueOf(long)
      */
-    public static @Unsigned ULong ulong(@Unsigned long value) {
+    public static ULong ulong(@Unsigned long value) {
         return ULong.valueOf(value);
     }
 
@@ -180,7 +180,7 @@ public final class UnsignedX {
      *             of an <code>unsigned long</code>
      * @see ULong#valueOf(BigInteger)
      */
-    public static @Unsigned ULong ulong(@Unsigned BigInteger value) throws NumberFormatException {
+    public static ULong ulong(BigInteger value) throws NumberFormatException {
         return ULong.valueOf(value);
     }
 

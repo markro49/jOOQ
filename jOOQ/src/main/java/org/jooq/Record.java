@@ -57,8 +57,6 @@ import org.jooq.impl.DefaultRecordMapperProvider;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A database result record.
  * <p>
@@ -1347,7 +1345,7 @@ public interface Record extends Fields, Attachable, Comparable<Record>, Formatta
      * @see #equals(Object)
      */
     @Override
-    int hashCode(@UnknownSignedness Record this);
+    int hashCode();
 
     /**
      * Compare this <code>Record</code> with another <code>Record</code> for

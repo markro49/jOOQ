@@ -53,7 +53,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     /**
      * Cached values
      */
-    private static final @Unsigned UInteger[]      VALUES                = mkValues();
+    private static final UInteger[]      VALUES                = mkValues();
 
     /**
      * A constant holding the minimum value an <code>unsigned int</code> can
@@ -71,13 +71,13 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * A constant holding the minimum value an <code>unsigned int</code> can
      * have as UInteger, 0.
      */
-    public static final @Unsigned UInteger         MIN                   = valueOf(MIN_VALUE);
+    public static final UInteger         MIN                   = valueOf(MIN_VALUE);
 
     /**
      * A constant holding the maximum value an <code>unsigned int</code> can
      * have as UInteger, 2<sup>32</sup>-1.
      */
-    public static final @Unsigned UInteger         MAX                   = valueOf(MAX_VALUE);
+    public static final UInteger         MAX                   = valueOf(MAX_VALUE);
 
     /**
      * The value modelling the content of this <code>unsigned int</code>
@@ -139,8 +139,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      *
      * @return Array of cached values for UInteger
      */
-    @SuppressWarnings("signedness:return")
-    private static final @Unsigned UInteger[] mkValues() {
+    private static final UInteger[] mkValues() {
         int precacheSize = getPrecacheSize();
         UInteger[] ret;
 
@@ -174,7 +173,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @return Cached value if one exists. Null otherwise.
      */
     @SuppressWarnings("signedness:comparison")
-    private static @Unsigned UInteger getCached(@Unsigned long value) {
+    private static UInteger getCached(@Unsigned long value) {
         if (VALUES != null && value < VALUES.length)
             return VALUES[(int) value];
 
@@ -184,9 +183,8 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     /**
      * Get the value of a long without checking the value.
      */
-    @SuppressWarnings("signedness:return")
-    private static @Unsigned UInteger valueOfUnchecked(@Unsigned long value) {
-        @Unsigned UInteger cached;
+    private static UInteger valueOfUnchecked(@Unsigned long value) {
+        UInteger cached;
 
         if ((cached = getCached(value)) != null)
             return cached;
@@ -201,7 +199,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      *             parsable <code>unsigned int</code>.
      */
     @SuppressWarnings("signedness:argument")
-    public static @Unsigned UInteger valueOf(String value) throws NumberFormatException {
+    public static UInteger valueOf(String value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(Long.parseLong(value)));
     }
 
@@ -210,7 +208,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * <code>0xFFFFFFFF</code> i.e. <code>(int) -1</code> becomes
      * <code>(uint) 4294967295</code>
      */
-    public static @Unsigned UInteger valueOf(@Unsigned int value) {
+    public static UInteger valueOf(@Unsigned int value) {
         return valueOfUnchecked(value & MAX_VALUE);
     }
 
@@ -220,7 +218,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static @Unsigned UInteger valueOf(@Unsigned long value) throws NumberFormatException {
+    public static UInteger valueOf(@Unsigned long value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -276,7 +274,6 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      *         this object
      * @throws ObjectStreamException
      */
-    @SuppressWarnings("signedness:return")
     private Object readResolve() throws ObjectStreamException {
         UInteger cached;
 
@@ -320,7 +317,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
 
     @Override
     @SuppressWarnings("signedness:method.invocation")
-    public int hashCode(@UnknownSignedness UInteger this) {
+    public int hashCode() {
         return Long.valueOf(value).hashCode();
     }
 
@@ -346,19 +343,19 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
         return (value < o.value ? -1 : (value == o.value ? 0 : 1));
     }
 
-    public @Unsigned UInteger add(final @Unsigned UInteger val) {
+    public UInteger add(final UInteger val) {
         return valueOf(value + val.value);
     }
 
-    public @Unsigned UInteger add(final @Unsigned int val) {
+    public UInteger add(final @Unsigned int val) {
         return valueOf(value + val);
     }
 
-    public @Unsigned UInteger subtract(final @Unsigned UInteger val) {
+    public UInteger subtract(final UInteger val) {
         return valueOf(value - val.value);
     }
 
-    public @Unsigned UInteger subtract(final @Unsigned int val) {
+    public UInteger subtract(final @Unsigned int val) {
         return valueOf(value - val);
     }
 }

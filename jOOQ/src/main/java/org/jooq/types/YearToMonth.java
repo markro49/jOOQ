@@ -44,7 +44,6 @@ import java.util.regex.Pattern;
 import org.jooq.Field;
 import org.jooq.SQLDialect;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
 import org.checkerframework.common.value.qual.PolyValue;
 
 /**
@@ -295,7 +294,7 @@ public final class YearToMonth extends Number implements Interval, Comparable<Ye
     }
 
     @Override
-    public final int hashCode(@UnknownSignedness YearToMonth this) {
+    public final int hashCode() {
         final int prime = 31;
         int result = 0;
         if (months != 0)

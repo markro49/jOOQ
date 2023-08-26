@@ -51,13 +51,13 @@ public final class UShort extends UNumber implements Comparable<UShort> {
      * A constant holding the minimum value an <code>unsigned short</code> can
      * have as UShort, 0.
      */
-    public static final @Unsigned UShort MIN             = valueOf(MIN_VALUE);
+    public static final UShort MIN             = valueOf(MIN_VALUE);
 
     /**
      * A constant holding the maximum value an <code>unsigned short</code> can
      * have as UShort, 2<sup>16</sup>-1.
      */
-    public static final @Unsigned UShort MAX             = valueOf(MAX_VALUE);
+    public static final UShort MAX             = valueOf(MAX_VALUE);
 
     /**
      * The value modelling the content of this <code>unsigned short</code>
@@ -70,8 +70,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned short</code>.
      */
-    @SuppressWarnings("signedness:return")
-    public static @Unsigned UShort valueOf(String value) throws NumberFormatException {
+    public static UShort valueOf(String value) throws NumberFormatException {
         return new UShort(value);
     }
 
@@ -80,8 +79,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
      * <code>0xFFFF</code> i.e. <code>(short) -1</code> becomes
      * <code>(ushort) 65535</code>
      */
-    @SuppressWarnings("signedness:return")
-    public static @Unsigned UShort valueOf(@Unsigned short value) {
+    public static UShort valueOf(@Unsigned short value) {
         return new UShort(value);
     }
 
@@ -91,8 +89,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned short</code>
      */
-    @SuppressWarnings("signedness:return")
-    public static @Unsigned UShort valueOf(@Unsigned int value) throws NumberFormatException {
+    public static UShort valueOf(@Unsigned int value) throws NumberFormatException {
         return new UShort(value);
     }
 
@@ -166,7 +163,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
 
     @Override
     @SuppressWarnings("signedness:method.invocation")
-    public int hashCode(@UnknownSignedness UShort this) {
+    public int hashCode() {
         return Integer.valueOf(value).hashCode();
     }
 
@@ -190,19 +187,19 @@ public final class UShort extends UNumber implements Comparable<UShort> {
         return (value < o.value ? -1 : (value == o.value ? 0 : 1));
     }
 
-    public @Unsigned UShort add(@Unsigned UShort val) throws NumberFormatException {
+    public UShort add(UShort val) throws NumberFormatException {
         return valueOf(value + val.value);
     }
 
-    public @Unsigned UShort add(@Unsigned int val) throws NumberFormatException {
+    public UShort add(@Unsigned int val) throws NumberFormatException {
         return valueOf(value + val);
     }
 
-    public @Unsigned UShort subtract(final @Unsigned UShort val) {
+    public UShort subtract(final UShort val) {
         return valueOf(value - val.value);
     }
 
-    public @Unsigned UShort subtract(final @Unsigned int val) {
+    public UShort subtract(final @Unsigned int val) {
         return valueOf(value - val);
     }
 }

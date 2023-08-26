@@ -78,8 +78,6 @@ import org.jooq.impl.MigrationImpl.Resolution;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.ApiStatus.Experimental;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * @author Lukas Eder
  */
@@ -282,7 +280,7 @@ class HistoryImpl extends AbstractScope implements History {
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness HistoryImpl this) {
+    public int hashCode() {
         return versions.hashCode();
     }
 

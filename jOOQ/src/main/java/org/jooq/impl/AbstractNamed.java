@@ -48,8 +48,6 @@ import org.jooq.Name;
 import org.jooq.Named;
 import org.jooq.tools.StringUtils;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * @author Lukas Eder
  */
@@ -98,7 +96,7 @@ abstract class AbstractNamed extends AbstractQueryPart implements Named {
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness AbstractNamed this) {
+    public int hashCode() {
 
         // [#1938] This is a much more efficient hashCode() implementation
         // compared to that of standard QueryParts

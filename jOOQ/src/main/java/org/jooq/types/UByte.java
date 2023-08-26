@@ -41,7 +41,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
     /**
      * Cached values
      */
-    private static final @Unsigned UByte[] VALUES           = mkValues();
+    private static final UByte[] VALUES           = mkValues();
 
     /**
      * A constant holding the minimum value an <code>unsigned byte</code> can
@@ -59,13 +59,13 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * A constant holding the minimum value an <code>unsigned byte</code> can
      * have as UByte, 0.
      */
-    public static final @Unsigned UByte    MIN              = valueOf(0x00);
+    public static final UByte    MIN              = valueOf(0x00);
 
     /**
      * A constant holding the maximum value an <code>unsigned byte</code> can
      * have as UByte, 2<sup>8</sup>-1.
      */
-    public static final @Unsigned UByte    MAX              = valueOf(0xff);
+    public static final UByte    MAX              = valueOf(0xff);
 
     /**
      * The value modelling the content of this <code>unsigned byte</code>
@@ -77,8 +77,8 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      *
      * @return Array of cached values for UByte.
      */
-    @SuppressWarnings({"signedness:operation", "signedness:cast", "signedness:return"})
-    private static final @Unsigned UByte[] mkValues() {
+    @SuppressWarnings({"signedness:operation", "signedness:cast"})
+    private static final UByte[] mkValues() {
         UByte[] ret = new UByte[256];
 
         for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; i++)
@@ -94,7 +94,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      *             parsable <code>unsigned byte</code>.
      */
     @SuppressWarnings("allcheckers:argument") // rangeCheck guarantees UByte range
-    public static @Unsigned UByte valueOf(String value) throws NumberFormatException {
+    public static UByte valueOf(String value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(Short.parseShort(value)));
     }
 
@@ -103,14 +103,14 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * <code>0xFF</code> i.e. <code>(byte) -1</code> becomes
      * <code>(ubyte) 255</code>
      */
-    public static @Unsigned UByte valueOf(@Unsigned byte value) {
+    public static UByte valueOf(@Unsigned byte value) {
         return valueOfUnchecked((short) (value & MAX_VALUE));
     }
 
     /**
      * Get the value of a short without checking the value.
      */
-    private static @Unsigned UByte valueOfUnchecked(@Unsigned short value) throws NumberFormatException {
+    private static UByte valueOfUnchecked(@Unsigned short value) throws NumberFormatException {
         return VALUES[value & MAX_VALUE];
     }
 
@@ -120,7 +120,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static @Unsigned UByte valueOf(@Unsigned @IntRange(from = 0, to =255) short value) throws NumberFormatException {
+    public static UByte valueOf(@Unsigned @IntRange(from = 0, to =255) short value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -130,7 +130,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static @Unsigned UByte valueOf(@Unsigned @IntRange(from = 0, to =255) int value) throws NumberFormatException {
+    public static UByte valueOf(@Unsigned @IntRange(from = 0, to =255) int value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -140,7 +140,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned byte</code>
      */
-    public static @Unsigned UByte valueOf(@Unsigned @IntRange(from = 0, to =255) long value) throws NumberFormatException {
+    public static UByte valueOf(@Unsigned @IntRange(from = 0, to =255) long value) throws NumberFormatException {
         return valueOfUnchecked(rangeCheck(value));
     }
 
@@ -250,7 +250,6 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @return cached instance of this object's value
      * @throws ObjectStreamException
      */
-    @SuppressWarnings("signedness:return")
     private Object readResolve() throws ObjectStreamException {
         return valueOf(value);
     }
@@ -280,7 +279,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
     }
 
     @Override
-    public int hashCode(@UnknownSignedness UByte this) {
+    public int hashCode() {
         return Short.valueOf(value).hashCode();
     }
 
@@ -310,22 +309,22 @@ public final class UByte extends UNumber implements Comparable<UByte> {
     }
 
     @SuppressWarnings("value:argument") // valueOf guarantees UByte range
-    public @Unsigned UByte add(@Unsigned UByte val) throws NumberFormatException {
+    public UByte add(UByte val) throws NumberFormatException {
         return valueOf(value + val.value);
     }
 
     @SuppressWarnings("value:argument") // valueOf guarantees UByte range
-    public @Unsigned UByte add(@Unsigned int val) throws NumberFormatException {
+    public UByte add(@Unsigned int val) throws NumberFormatException {
         return valueOf(value + val);
     }
 
     @SuppressWarnings("value:argument") // valueOf guarantees UByte range
-    public @Unsigned UByte subtract(final @Unsigned UByte val) {
+    public UByte subtract(final UByte val) {
         return valueOf(value - val.value);
     }
 
     @SuppressWarnings("value:argument") // valueOf guarantees UByte range
-    public @Unsigned UByte subtract(final @Unsigned int val) {
+    public UByte subtract(final @Unsigned int val) {
         return valueOf(value - val);
     }
 }

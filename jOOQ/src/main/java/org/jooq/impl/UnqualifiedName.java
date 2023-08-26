@@ -52,8 +52,6 @@ import org.jooq.conf.RenderQuotedNames;
 import org.jooq.conf.SettingsTools;
 import org.jooq.tools.StringUtils;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * The default implementation for an unqualified SQL identifier.
  *
@@ -170,7 +168,7 @@ final class UnqualifiedName extends AbstractName {
     // ------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness UnqualifiedName this) {
+    public int hashCode() {
 
         // [#13499] Since QualifiedName and UnqualifiedName can be equal, both
         //          need the same hashCode() computation

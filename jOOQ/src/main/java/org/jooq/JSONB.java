@@ -47,8 +47,6 @@ import org.jooq.tools.json.ParseException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A JSON wrapper type for JSONB data obtained from the database.
  * <p>
@@ -147,7 +145,7 @@ public final class JSONB implements Serializable {
      * performance!
      */
     @Override
-    public int hashCode(@UnknownSignedness JSONB this) {
+    public int hashCode() {
         Object p = parsed();
         return p == null ? 0 : p.hashCode();
     }

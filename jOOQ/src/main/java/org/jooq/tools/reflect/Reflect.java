@@ -28,8 +28,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A wrapper for an {@link Object} or {@link Class} upon which reflective calls
  * can be made.
@@ -864,7 +862,7 @@ public class Reflect {
     }
 
     @Override
-    public int hashCode(@UnknownSignedness Reflect this) {
+    public int hashCode() {
         return object.hashCode();
     }
 

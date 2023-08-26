@@ -47,7 +47,6 @@ import org.jooq.Field;
 import org.jooq.SQLDialect;
 import org.jooq.tools.StringUtils;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
 import org.checkerframework.common.value.qual.PolyValue;
 
 /**
@@ -660,7 +659,7 @@ public final class DayToSecond extends Number implements Interval, Comparable<Da
     }
 
     @Override
-    public final int hashCode(@UnknownSignedness DayToSecond this) {
+    public final int hashCode() {
         final int prime = 31;
         int result = 0;
         if (days != 0)

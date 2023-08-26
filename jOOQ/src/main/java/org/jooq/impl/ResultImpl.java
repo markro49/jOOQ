@@ -1135,7 +1135,7 @@ final class ResultImpl<R extends Record> extends AbstractResult<R> implements Re
     }
 
     @Override
-    public int hashCode(@UnknownSignedness ResultImpl<R> this) {
+    public int hashCode() {
         return records.hashCode();
     }
 

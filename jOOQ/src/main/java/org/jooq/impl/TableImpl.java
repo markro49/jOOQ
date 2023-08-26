@@ -91,8 +91,6 @@ import org.jooq.tools.StringUtils;
 
 import org.jetbrains.annotations.Nullable;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A common base type for tables
  * <p>
@@ -618,7 +616,7 @@ implements
     // ------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness TableImpl<R> this) {
+    public int hashCode() {
 
         // [#7172] [#10274] [#14875] Cannot use getQualifiedName() based super implementation yet here
         return defaultIfNull(getSchema(), DEFAULT_SCHEMA.get()).getQualifiedName().append(getUnqualifiedName()).hashCode();
