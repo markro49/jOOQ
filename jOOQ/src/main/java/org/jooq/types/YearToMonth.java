@@ -294,7 +294,7 @@ public final class YearToMonth extends Number implements Interval, Comparable<Ye
     }
 
     @Override
-    public final int hashCode() {
+    public final int hashCode(@UnknownSignedness YearToMonth this) {
         final int prime = 31;
         int result = 0;
         if (months != 0)

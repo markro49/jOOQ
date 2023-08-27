@@ -119,7 +119,7 @@ final class ResultsImpl extends AbstractList<Result<Record>> implements Results 
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness ResultsImpl this) {
         return resultsOrRows.hashCode();
     }
 

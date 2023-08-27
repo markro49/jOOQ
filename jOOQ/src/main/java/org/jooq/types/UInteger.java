@@ -53,7 +53,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     /**
      * Cached values
      */
-    private static final UInteger[]      VALUES                = mkValues();
+    private static final @Unsigned UInteger[]      VALUES                = mkValues();
 
     /**
      * A constant holding the minimum value an <code>unsigned int</code> can
@@ -71,13 +71,13 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      * A constant holding the minimum value an <code>unsigned int</code> can
      * have as UInteger, 0.
      */
-    public static final UInteger         MIN                   = valueOf(MIN_VALUE);
+    public static final @Unsigned UInteger         MIN                   = valueOf(MIN_VALUE);
 
     /**
      * A constant holding the maximum value an <code>unsigned int</code> can
      * have as UInteger, 2<sup>32</sup>-1.
      */
-    public static final UInteger         MAX                   = valueOf(MAX_VALUE);
+    public static final @Unsigned UInteger         MAX                   = valueOf(MAX_VALUE);
 
     /**
      * The value modelling the content of this <code>unsigned int</code>
@@ -139,7 +139,8 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      *
      * @return Array of cached values for UInteger
      */
-    private static final UInteger[] mkValues() {
+    @SuppressWarnings("signedness:return")
+    private static final @Unsigned UInteger[] mkValues() {
         int precacheSize = getPrecacheSize();
         UInteger[] ret;
 
@@ -274,6 +275,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
      *         this object
      * @throws ObjectStreamException
      */
+    @SuppressWarnings("signedness:return")
     private Object readResolve() throws ObjectStreamException {
         UInteger cached;
 
@@ -343,7 +345,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
         return (value < o.value ? -1 : (value == o.value ? 0 : 1));
     }
 
-    public UInteger add(final UInteger val) {
+    public @Unsigned UInteger add(final @Unsigned UInteger val) {
         return valueOf(value + val.value);
     }
 
@@ -351,7 +353,7 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
         return valueOf(value + val);
     }
 
-    public UInteger subtract(final UInteger val) {
+    public @Unsigned UInteger subtract(final @Unsigned UInteger val) {
         return valueOf(value - val.value);
     }
 

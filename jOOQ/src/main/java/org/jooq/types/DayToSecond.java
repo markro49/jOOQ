@@ -659,7 +659,7 @@ public final class DayToSecond extends Number implements Interval, Comparable<Da
     }
 
     @Override
-    public final int hashCode() {
+    public final int hashCode(@UnknownSignedness DayToSecond this) {
         final int prime = 31;
         int result = 0;
         if (days != 0)

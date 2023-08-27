@@ -42,6 +42,8 @@ import java.io.Serializable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * An XML wrapper type for XML data obtained from the database.
  * <p>
@@ -93,7 +95,7 @@ public final class XML implements Serializable {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness XML this) {
         return data.hashCode();
     }
 

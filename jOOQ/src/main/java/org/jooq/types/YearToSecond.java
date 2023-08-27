@@ -316,7 +316,7 @@ public final class YearToSecond extends Number implements Interval, Comparable<Y
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness YearToSecond this) {
         final int prime = 31;
         int result = 0;
         int h1 = dayToSecond.hashCode();

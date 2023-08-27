@@ -64,6 +64,8 @@ import org.jooq.impl.DefaultBinding.InternalBinding;
 import org.jooq.impl.QOM.NotYetImplementedException;
 import org.jooq.tools.StringUtils;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A base implementation for {@link Param}
  *
@@ -271,7 +273,7 @@ abstract class AbstractParam<T> extends AbstractParamX<T> implements SimpleQuery
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness AbstractParam<T> this) {
         return value == null
             ? 0
             : value instanceof byte[] a

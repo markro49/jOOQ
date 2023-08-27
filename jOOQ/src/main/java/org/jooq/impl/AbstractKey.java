@@ -54,6 +54,8 @@ import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.QOM.UEmpty;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * Common base class for <code>Key</code>'s
  *
@@ -119,7 +121,7 @@ abstract class AbstractKey<R extends Record> extends AbstractNamed implements Ke
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness AbstractKey<R> this) {
         final int prime = 31;
         int result = 1;
         result = prime * result + getQualifiedName().hashCode();

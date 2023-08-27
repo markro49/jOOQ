@@ -71,6 +71,8 @@ import org.jooq.impl.QOM.UEmpty;
 import org.jooq.impl.Tools.SimpleDataKey;
 import org.jooq.tools.StringUtils;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A common base type for table fields.
  *
@@ -218,7 +220,7 @@ implements
     // ------------------------------------------------------------------------
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness TableFieldImpl<R, T> this) {
 
         // [#7172] [#10274] [#14875] Cannot use Table.getQualifiedName() based super implementation yet here
         if (getTable() == null)

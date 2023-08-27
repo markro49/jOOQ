@@ -75,6 +75,8 @@ import org.jooq.SelectField;
 // ...
 import org.jooq.impl.QOM.UnmodifiableList;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * A common base class for the various degrees of {@link Row1}, {@link Row2},
  * etc.
@@ -516,7 +518,7 @@ abstract class AbstractRow<R extends Record> extends AbstractQueryPart implement
     // ------------------------------------------------------------------------
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness AbstractRow<R> this) {
         return fields.hashCode();
     }
 

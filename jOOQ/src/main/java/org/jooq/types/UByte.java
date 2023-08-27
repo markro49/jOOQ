@@ -41,7 +41,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
     /**
      * Cached values
      */
-    private static final UByte[] VALUES           = mkValues();
+    private static final @Unsigned UByte[] VALUES           = mkValues();
 
     /**
      * A constant holding the minimum value an <code>unsigned byte</code> can
@@ -59,13 +59,13 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * A constant holding the minimum value an <code>unsigned byte</code> can
      * have as UByte, 0.
      */
-    public static final UByte    MIN              = valueOf(0x00);
+    public static final @Unsigned UByte    MIN              = valueOf(0x00);
 
     /**
      * A constant holding the maximum value an <code>unsigned byte</code> can
      * have as UByte, 2<sup>8</sup>-1.
      */
-    public static final UByte    MAX              = valueOf(0xff);
+    public static final @Unsigned UByte    MAX              = valueOf(0xff);
 
     /**
      * The value modelling the content of this <code>unsigned byte</code>
@@ -250,6 +250,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
      * @return cached instance of this object's value
      * @throws ObjectStreamException
      */
+    @SuppressWarnings("signedness:return")
     private Object readResolve() throws ObjectStreamException {
         return valueOf(value);
     }
@@ -279,7 +280,7 @@ public final class UByte extends UNumber implements Comparable<UByte> {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness UByte this) {
         return Short.valueOf(value).hashCode();
     }
 

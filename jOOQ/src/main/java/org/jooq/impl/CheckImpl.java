@@ -47,6 +47,8 @@ import org.jooq.Record;
 import org.jooq.Table;
 import org.jooq.impl.QOM.UNotYetImplemented;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 /**
  * @author Lukas Eder
  */
@@ -98,7 +100,7 @@ final class CheckImpl<R extends Record> extends AbstractNamed implements Check<R
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(@UnknownSignedness CheckImpl<R> this) {
         final int prime = 31;
         int result = super.hashCode();
         result = prime * result + ((condition == null) ? 0 : condition.hashCode());

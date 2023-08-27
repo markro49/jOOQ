@@ -370,6 +370,8 @@ import org.jooq.types.UShort;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import org.checkerframework.checker.signedness.qual.UnknownSignedness;
+
 import io.r2dbc.spi.R2dbcException;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -435,7 +437,7 @@ final class Tools {
         }
 
         @Override
-        public int hashCode() {
+        public int hashCode(@UnknownSignedness DataKeyScopeStackPart this) {
             return 0;
         }
     }
@@ -4551,7 +4553,7 @@ final class Tools {
         }
 
         @Override
-        public int hashCode() {
+        public int hashCode(@UnknownSignedness SourceMethod this) {
             final int prime = 31;
             int result = 1;
             result = prime * result + ((method == null) ? 0 : method.getName().hashCode());
