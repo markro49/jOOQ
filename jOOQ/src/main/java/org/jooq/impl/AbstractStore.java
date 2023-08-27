@@ -47,8 +47,6 @@ import org.jooq.JSONFormat;
 import org.jooq.Record;
 import org.jooq.XMLFormat;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A common base class for {@link Record} and {@link ArrayRecord}
  * <p>
@@ -113,7 +111,7 @@ abstract class AbstractStore extends AbstractFormattable {
     abstract Object get(int index);
 
     @Override
-    public int hashCode(@UnknownSignedness AbstractStore this) {
+    public int hashCode() {
         int hashCode = 1;
 
         for (int i = 0; i < size(); i++) {

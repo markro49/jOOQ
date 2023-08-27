@@ -18,7 +18,6 @@ package org.jooq.types;
 import java.math.BigInteger;
 
 import org.checkerframework.checker.signedness.qual.Signed;
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
 import org.checkerframework.checker.signedness.qual.Unsigned;
 import org.checkerframework.common.value.qual.PolyValue;
 
@@ -51,13 +50,13 @@ public final class UShort extends UNumber implements Comparable<UShort> {
      * A constant holding the minimum value an <code>unsigned short</code> can
      * have as UShort, 0.
      */
-    public static final @Unsigned UShort MIN             = valueOf(MIN_VALUE);
+    public static final UShort MIN             = valueOf(MIN_VALUE);
 
     /**
      * A constant holding the maximum value an <code>unsigned short</code> can
      * have as UShort, 2<sup>16</sup>-1.
      */
-    public static final @Unsigned UShort MAX             = valueOf(MAX_VALUE);
+    public static final UShort MAX             = valueOf(MAX_VALUE);
 
     /**
      * The value modelling the content of this <code>unsigned short</code>
@@ -70,8 +69,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned short</code>.
      */
-    @SuppressWarnings("signedness:return")
-    public static @Unsigned UShort valueOf(String value) throws NumberFormatException {
+    public static UShort valueOf(String value) throws NumberFormatException {
         return new UShort(value);
     }
 
@@ -188,7 +186,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
         return (value < o.value ? -1 : (value == o.value ? 0 : 1));
     }
 
-    public @Unsigned UShort add(@Unsigned UShort val) throws NumberFormatException {
+    public UShort add(UShort val) throws NumberFormatException {
         return valueOf(value + val.value);
     }
 
@@ -196,7 +194,7 @@ public final class UShort extends UNumber implements Comparable<UShort> {
         return valueOf(value + val);
     }
 
-    public @Unsigned UShort subtract(final @Unsigned UShort val) {
+    public UShort subtract(final UShort val) {
         return valueOf(value - val.value);
     }
 

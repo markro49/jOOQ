@@ -381,7 +381,7 @@ permits
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness QueryPartCollectionView<T> this) {
+    public int hashCode() {
         return wrapped.hashCode();
     }
 

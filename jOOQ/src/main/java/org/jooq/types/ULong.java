@@ -17,7 +17,6 @@ package org.jooq.types;
 
 import java.math.BigInteger;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
 import org.checkerframework.checker.signedness.qual.Unsigned;
 import org.checkerframework.common.value.qual.PolyValue;
 
@@ -39,15 +38,13 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * A constant holding the minimum value an <code>unsigned long</code> can
      * have, 0.
      */
-    @SuppressWarnings("signedness:assignment")
-    public static final @Unsigned BigInteger MIN_VALUE        = BigInteger.ZERO;
+    public static final BigInteger MIN_VALUE        = BigInteger.ZERO;
 
     /**
      * A constant holding the maximum value an <code>unsigned long</code> can
      * have, 2<sup>64</sup>-1.
      */
-    @SuppressWarnings("signedness:assignment")
-    public static final @Unsigned BigInteger MAX_VALUE        = new BigInteger("18446744073709551615");
+    public static final BigInteger MAX_VALUE        = new BigInteger("18446744073709551615");
 
     /**
      * A constant holding the maximum value + 1 an <code>signed long</code> can
@@ -66,7 +63,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * A constant holding the maximum value + 1 an <code>signed long</code> can
      * have as ULong, 2<sup>63</sup>.
      */
-    public static final @Unsigned ULong      MAX              = valueOf(MAX_VALUE);
+    public static final ULong      MAX              = valueOf(MAX_VALUE);
 
     /**
      * The value modelling the content of this <code>unsigned long</code>
@@ -79,8 +76,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * @throws NumberFormatException If <code>value</code> does not contain a
      *             parsable <code>unsigned long</code>.
      */
-    @SuppressWarnings("signedness:return")
-    public static @Unsigned ULong valueOf(String value) throws NumberFormatException {
+    public static ULong valueOf(String value) throws NumberFormatException {
         return new ULong(value);
     }
 
@@ -99,8 +95,7 @@ public final class ULong extends UNumber implements Comparable<ULong> {
      * @throws NumberFormatException If <code>value</code> is not in the range
      *             of an <code>unsigned long</code>
      */
-    @SuppressWarnings("signedness:return")
-    public static @Unsigned ULong valueOf(@Unsigned BigInteger value) throws NumberFormatException {
+    public static ULong valueOf(BigInteger value) throws NumberFormatException {
         return new ULong(value);
     }
 

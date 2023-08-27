@@ -62,8 +62,6 @@ import org.jooq.Version;
 import org.jooq.conf.InterpreterSearchSchema;
 import org.jooq.exception.DataDefinitionException;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * @author Lukas Eder
  */
@@ -238,7 +236,7 @@ final class VersionImpl extends AbstractNode<Version> implements Version {
     }
 
     @Override
-    public int hashCode(@UnknownSignedness VersionImpl this) {
+    public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + id().hashCode();

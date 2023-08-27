@@ -48,8 +48,6 @@ import org.jooq.Context;
 import org.jooq.Name;
 import org.jooq.tools.StringUtils;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * The default implementation for a qualified SQL identifier.
  *
@@ -264,7 +262,7 @@ final class QualifiedName extends AbstractName {
     private transient Integer hash;
 
     @Override
-    public int hashCode(@UnknownSignedness QualifiedName this) {
+    public int hashCode() {
         if (hash == null) {
             int h = 1;
 

@@ -72,8 +72,6 @@ import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.util.xml.jaxb.InformationSchema;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * @author Lukas Eder
  */
@@ -639,7 +637,7 @@ abstract class AbstractMeta extends AbstractScope implements Meta, Serializable 
     }
 
     @Override
-    public int hashCode(@UnknownSignedness AbstractMeta this) {
+    public int hashCode() {
         return ddl().hashCode();
     }
 

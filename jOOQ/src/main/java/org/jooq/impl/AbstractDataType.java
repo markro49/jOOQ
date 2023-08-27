@@ -119,8 +119,6 @@ import org.jooq.types.UNumber;
 
 import org.jetbrains.annotations.NotNull;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 // ...
 
 /**
@@ -1014,7 +1012,7 @@ implements
     }
 
     @Override
-    public int hashCode(@UnknownSignedness AbstractDataType<T> this) {
+    public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getDialect() == null) ? 0 : getDialect().hashCode());

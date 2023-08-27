@@ -22,8 +22,6 @@ import java.util.regex.Pattern;
 
 import org.jooq.tools.StringUtils;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A version of a migration.
  * <p>
@@ -86,7 +84,7 @@ final class FlywayVersion implements Comparable<FlywayVersion> {
     }
 
     @Override
-    public int hashCode(@UnknownSignedness FlywayVersion this) {
+    public int hashCode() {
         return versionParts == null ? 0 : versionParts.hashCode();
     }
 

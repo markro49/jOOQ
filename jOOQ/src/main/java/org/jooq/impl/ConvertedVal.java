@@ -45,8 +45,6 @@ import org.jooq.conf.ParamType;
 import org.jooq.impl.QOM.NotYetImplementedException;
 import org.jooq.impl.QOM.UNotYetImplemented;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A {@link Param} wrapper object that allows for lazily initialising the value
  * and its potentially required calls to custom converters.
@@ -151,7 +149,7 @@ final class ConvertedVal<T> extends AbstractParamX<T> implements UNotYetImplemen
     }
 
     @Override
-    public int hashCode(@UnknownSignedness ConvertedVal<T> this) {
+    public int hashCode() {
         return delegate.hashCode();
     }
 

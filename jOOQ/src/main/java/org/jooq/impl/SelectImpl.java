@@ -367,7 +367,7 @@ implements
     }
 
     @Override
-    public final SelectImpl from(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl from(String sql, Object... bindings) {
         return from(table(sql, bindings));
     }
 
@@ -418,7 +418,7 @@ implements
     }
 
     @Override
-    public final SelectImpl where(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl where(String sql, Object... bindings) {
         return where(condition(sql, bindings));
     }
 
@@ -480,7 +480,7 @@ implements
     }
 
     @Override
-    public final SelectImpl and(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl and(String sql, Object... bindings) {
         return and(condition(sql, bindings));
     }
 
@@ -549,7 +549,7 @@ implements
     }
 
     @Override
-    public final SelectImpl or(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl or(String sql, Object... bindings) {
         return or(condition(sql, bindings));
     }
 
@@ -1589,7 +1589,7 @@ implements
 
 
 
-    private final List<? extends Field<?>> seekValues(@UnknownSignedness Object[] values) {
+    private final List<? extends Field<?>> seekValues(Object[] values) {
         if (getQuery() instanceof SelectQueryImpl<R> s)
             return Tools.fields(values, map(
                 s.getOrderBy().fields(),
@@ -2074,7 +2074,7 @@ implements
     }
 
     @Override
-    public final SelectImpl having(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl having(String sql, Object... bindings) {
         return having(condition(sql, bindings));
     }
 
@@ -2132,7 +2132,7 @@ implements
     }
 
     @Override
-    public final SelectImpl qualify(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl qualify(String sql, Object... bindings) {
         return qualify(condition(sql, bindings));
     }
 
@@ -2209,7 +2209,7 @@ implements
     }
 
     @Override
-    public final SelectImpl on(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl on(String sql, Object... bindings) {
         return on(condition(sql, bindings));
     }
 
@@ -2469,7 +2469,7 @@ implements
     }
 
     @Override
-    public final SelectImpl join(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl join(String sql, Object... bindings) {
         return innerJoin(sql, bindings);
     }
 
@@ -2494,7 +2494,7 @@ implements
     }
 
     @Override
-    public final SelectImpl innerJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl innerJoin(String sql, Object... bindings) {
         return innerJoin(table(sql, bindings));
     }
 
@@ -2519,7 +2519,7 @@ implements
     }
 
     @Override
-    public final SelectImpl leftJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl leftJoin(String sql, Object... bindings) {
         return leftOuterJoin(sql, bindings);
     }
 
@@ -2544,7 +2544,7 @@ implements
     }
 
     @Override
-    public final SelectImpl leftOuterJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl leftOuterJoin(String sql, Object... bindings) {
         return leftOuterJoin(table(sql, bindings));
     }
 
@@ -2569,7 +2569,7 @@ implements
     }
 
     @Override
-    public final SelectImpl rightJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl rightJoin(String sql, Object... bindings) {
         return rightOuterJoin(sql, bindings);
     }
 
@@ -2594,7 +2594,7 @@ implements
     }
 
     @Override
-    public final SelectImpl rightOuterJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl rightOuterJoin(String sql, Object... bindings) {
         return rightOuterJoin(table(sql, bindings));
     }
 
@@ -2619,7 +2619,7 @@ implements
     }
 
     @Override
-    public final SelectImpl fullJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl fullJoin(String sql, Object... bindings) {
         return fullOuterJoin(sql, bindings);
     }
 
@@ -2644,7 +2644,7 @@ implements
     }
 
     @Override
-    public final SelectImpl fullOuterJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl fullOuterJoin(String sql, Object... bindings) {
         return fullOuterJoin(table(sql, bindings));
     }
 
@@ -2669,7 +2669,7 @@ implements
     }
 
     @Override
-    public final SelectJoinStep<R> crossJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectJoinStep<R> crossJoin(String sql, Object... bindings) {
         return crossJoin(table(sql, bindings));
     }
 
@@ -2694,7 +2694,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl naturalJoin(String sql, Object... bindings) {
         return naturalJoin(table(sql, bindings));
     }
 
@@ -2719,7 +2719,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalLeftOuterJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl naturalLeftOuterJoin(String sql, Object... bindings) {
         return naturalLeftOuterJoin(table(sql, bindings));
     }
 
@@ -2744,7 +2744,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalRightOuterJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl naturalRightOuterJoin(String sql, Object... bindings) {
         return naturalRightOuterJoin(table(sql, bindings));
     }
 
@@ -2769,7 +2769,7 @@ implements
     }
 
     @Override
-    public final SelectImpl naturalFullOuterJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl naturalFullOuterJoin(String sql, Object... bindings) {
         return naturalFullOuterJoin(table(sql, bindings));
     }
 
@@ -2794,7 +2794,7 @@ implements
     }
 
     @Override
-    public final SelectImpl crossApply(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl crossApply(String sql, Object... bindings) {
         return crossApply(table(sql, bindings));
     }
 
@@ -2819,7 +2819,7 @@ implements
     }
 
     @Override
-    public final SelectImpl outerApply(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl outerApply(String sql, Object... bindings) {
         return outerApply(table(sql, bindings));
     }
 
@@ -2861,7 +2861,7 @@ implements
     }
 
     @Override
-    public final SelectImpl straightJoin(String sql, @UnknownSignedness Object... bindings) {
+    public final SelectImpl straightJoin(String sql, Object... bindings) {
         return straightJoin(table(sql, bindings));
     }
 
@@ -3285,7 +3285,7 @@ implements
 
     private final Object[] values(int index, R... records) {
         Class<?> type = field(0).getType();
-        return map(records, r -> r.get(index, type), @UnknownSignedness Object[]::new);
+        return map(records, r -> r.get(index, type), Object[]::new);
     }
 
     @Override

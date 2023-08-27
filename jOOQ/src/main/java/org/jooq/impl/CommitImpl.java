@@ -70,8 +70,6 @@ import org.jooq.Version;
 import org.jooq.exception.DataMigrationException;
 import org.jooq.tools.StringUtils;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * @author Lukas Eder
  */
@@ -427,7 +425,7 @@ final class CommitImpl extends AbstractNode<Commit> implements Commit {
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness CommitImpl this) {
+    public int hashCode() {
         return id().hashCode();
     }
 

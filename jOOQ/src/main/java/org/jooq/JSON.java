@@ -42,8 +42,6 @@ import java.io.Serializable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A JSON wrapper type for JSON data obtained from the database.
  * <p>
@@ -122,7 +120,7 @@ public final class JSON implements Serializable {
      * attribute ordering differs (see {@link JSON} for details).
      */
     @Override
-    public int hashCode(@UnknownSignedness JSON this) {
+    public int hashCode() {
         return data.hashCode();
     }
 

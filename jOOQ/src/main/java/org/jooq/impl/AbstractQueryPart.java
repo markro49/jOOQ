@@ -57,8 +57,6 @@ import org.jooq.exception.DataAccessException;
 import org.jooq.exception.SQLDialectNotSupportedException;
 import org.jooq.tools.JooqLogger;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * @author Lukas Eder
  */
@@ -178,7 +176,7 @@ abstract class AbstractQueryPart implements QueryPartInternal {
     }
 
     @Override
-    public int hashCode(@UnknownSignedness AbstractQueryPart this) {
+    public int hashCode() {
         // This is a working default implementation. It should be overridden by
         // concrete subclasses, to improve performance
 

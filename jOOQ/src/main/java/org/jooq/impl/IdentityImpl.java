@@ -42,8 +42,6 @@ import org.jooq.Record;
 import org.jooq.Table;
 import org.jooq.TableField;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * @author Lukas Eder
  */
@@ -69,7 +67,7 @@ final class IdentityImpl<R extends Record, T> implements Identity<R, T> {
     }
 
     @Override
-    public int hashCode(@UnknownSignedness IdentityImpl<R, T> this) {
+    public int hashCode() {
         return toString().hashCode();
     }
 

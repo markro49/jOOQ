@@ -40,8 +40,6 @@ package org.jooq;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A wrapper type for spatial data obtained from the database.
  * <p>
@@ -98,7 +96,7 @@ public final class Geometry implements Spatial {
     }
 
     @Override
-    public int hashCode(@UnknownSignedness Geometry this) {
+    public int hashCode() {
         return data.hashCode();
     }
 

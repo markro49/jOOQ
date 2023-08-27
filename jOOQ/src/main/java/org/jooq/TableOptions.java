@@ -51,8 +51,6 @@ import org.jooq.impl.QOM.TableCommitAction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * A description of various additional {@link Table} options to describe the
  * table runtime meta model.
@@ -360,7 +358,7 @@ public final class TableOptions implements Serializable {
     // -------------------------------------------------------------------------
 
     @Override
-    public int hashCode(@UnknownSignedness TableOptions this) {
+    public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((onCommit == null) ? 0 : onCommit.hashCode());

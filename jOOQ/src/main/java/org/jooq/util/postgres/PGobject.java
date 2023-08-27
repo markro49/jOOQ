@@ -10,8 +10,6 @@ import java.sql.SQLException;
 
 import org.jetbrains.annotations.ApiStatus.Internal;
 
-import org.checkerframework.checker.signedness.qual.UnknownSignedness;
-
 /**
  * PGobject is a class used to describe unknown types An unknown type is any type that is unknown by
  * JDBC Standards.
@@ -120,7 +118,7 @@ public class PGobject implements Serializable, Cloneable {
    * @return Value hashcode, 0 if value is null {@link java.util.Objects#hashCode(Object)}
    */
   @Override
-  public int hashCode(@UnknownSignedness PGobject this) {
+  public int hashCode() {
     String value = getValue();
     return value != null ? value.hashCode() : 0;
   }
